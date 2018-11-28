@@ -1,0 +1,84 @@
+<?php
+
+namespace App\Models;
+
+use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+/**
+ * Class User
+ * @package App\Models
+ * @version November 27, 2018, 3:37 pm UTC
+ *
+ * @property integer role_id
+ * @property string first_name
+ * @property string surname
+ * @property string other_name
+ * @property string phone
+ * @property string email
+ * @property string address
+ * @property string|\Carbon\Carbon email_verified_at
+ * @property string password
+ * @property string remember_token
+ */
+class User extends Model
+{
+    use SoftDeletes;
+
+    public $table = 'users';
+    
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
+
+
+    protected $dates = ['deleted_at'];
+
+
+    public $fillable = [
+        'first_name',
+        'surname',
+        'other_name',
+        'phone',
+        'email',
+        'address',
+        'email_verified_at',
+        'password',
+        'remember_token'
+    ];
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+        'role_id' => 'integer',
+        'first_name' => 'string',
+        'surname' => 'string',
+        'other_name' => 'string',
+        'phone' => 'string',
+        'email' => 'string',
+        'address' => 'string',
+        'password' => 'string',
+        'remember_token' => 'string'
+    ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'role_id'=> ['nullable', 'numeric', 'min:1'],
+        'first_name' => ['required', 'string', 'max:255'],
+        'surname' => ['required', 'string', 'max:255'],
+        'other_name' => ['string', 'max:255'],
+        'phone' => ['required','string', 'max:255',  'unique:users'],
+        'address' => ['required','integer', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:6', 'confirmed'],
+    ];
+
+    
+}
