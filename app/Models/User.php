@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use App\Models\Expenditure;
+use App\Models\Role;
 /**
  * Class User
  * @package App\Models
