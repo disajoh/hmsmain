@@ -41,10 +41,9 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::resource('expenseTypes', 'Expense_typeController');
 
-<<<<<<< HEAD
-Route::resource('otherRevenueSources', 'Other_revenue_sourceController');
-Route::get('so/new', 'BookingController@new')->name('new');
-=======
+
     Route::resource('otherRevenueSources', 'Other_revenue_sourceController');
+    Route::get('so/new', 'BookingController@new')->name('new');
+
 });
->>>>>>> 458132a44b038f6059ded4cc37f070432cd609e5
+
