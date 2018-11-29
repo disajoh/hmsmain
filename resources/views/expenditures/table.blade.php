@@ -1,8 +1,6 @@
 <table class="table table-responsive" id="expenditures-table">
     <thead>
         <tr>
-            <th>User Id</th>
-        <th>Expence Type Id</th>
         <th>Description</th>
         <th>Amount</th>
         <th>Payment Method</th>
@@ -14,13 +12,11 @@
     <tbody>
     @foreach($expenditures as $expenditure)
         <tr>
-            <td>{!! $expenditure->user_id !!}</td>
-            <td>{!! $expenditure->expence_type_id !!}</td>
             <td>{!! $expenditure->description !!}</td>
             <td>{!! $expenditure->amount !!}</td>
             <td>{!! $expenditure->payment_method !!}</td>
             <td>{!! $expenditure->cheque_number !!}</td>
-            <td>{!! $expenditure->expense_date !!}</td>
+            <td>{!! $expenditure->expense_date->format('D d, M, Y') !!}</td>
             <td>
                 {!! Form::open(['route' => ['expenditures.destroy', $expenditure->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

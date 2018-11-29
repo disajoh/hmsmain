@@ -83,7 +83,7 @@ class User extends Model
 
     public  function role(){
         
-        return $this->hasMany('App\Model\Role');
+        return $this->belongsTo(Role::class);
     }
 
     public  function expenditure(){

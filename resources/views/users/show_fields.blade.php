@@ -1,8 +1,8 @@
 
 <!-- Role Id Field -->
 <div class="form-group">
-    {!! Form::label('role_id', 'Role Id:') !!}
-    <p>{!! $user->role_id !!}</p>
+    {!! Form::label('role_id', 'Staff Role:') !!}
+    <p>{!! $user->role['name'] !!}</p>
 </div>
 
 <!-- First Name Field -->
@@ -42,5 +42,9 @@
 </div>
 
 
-
+<!-- Address Field -->
+<div class="form-group">
+    {!! Form::label('created_at', 'Registered:') !!}
+    <p>{!! $user->created_at->format('D d, M, Y') !!}</p>
+</div>
 
