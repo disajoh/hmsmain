@@ -56,6 +56,10 @@ class Room extends Model
 
     public  function room_category(){
          
-         return $this->belongsTo('App\Model\Room_category');
+         return $this->belongsTo(Room_category::class);
+    }
+
+    public function bookings(){
+        return $this->hasMany(Booking::class);
     }
 }

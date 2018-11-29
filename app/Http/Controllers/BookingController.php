@@ -14,6 +14,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Auth;
 use CustomerController;
+use App\Models\Room;
 
 class BookingController extends AppBaseController
 {
@@ -85,6 +86,12 @@ class BookingController extends AppBaseController
 
         //add booking for the new customer
         $booking = $this->bookingRepository->create($input2);
+
+        $room = $booking->room;
+       
+        Room::where('id', $room['id'])
+          ->update(['available' => false]);
+
 
         Flash::success('Booking saved successfully.');
 
