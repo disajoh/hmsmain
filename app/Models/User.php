@@ -84,4 +84,9 @@ class User extends Model
         
         return $this->hasMany('App\Model\Role');
     }
+
+    public  function expenditure(){
+        
+        return $this->hasMany('App\Model\Expenditure');
+    }
 }

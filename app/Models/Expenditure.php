@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use App\Models\User;
+use App\Models\Expense_type;
 /**
  * Class Expenditure
  * @package App\Models
@@ -17,6 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string payment_method
  * @property date expense_date
  */
+
 class Expenditure extends Model
 {
     use SoftDeletes;
@@ -67,6 +69,11 @@ class Expenditure extends Model
 
     public  function expense_type(){
         
-        return $this->belongsTo('App\Model\Expense_type');
+        return $this->belongsTo(Expense_type::class);
+    }
+
+    public  function user(){
+        
+        return $this->belongsTo(User::class);
     }
 }

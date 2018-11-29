@@ -1,19 +1,14 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $expenditure->id !!}</p>
-</div>
 
 <!-- User Id Field -->
 <div class="form-group">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{!! $expenditure->user_id !!}</p>
+    {!! Form::label('user_id', 'Staff:') !!}
+    <p>{!! $expenditure->user['first_name'] !!}</p>
 </div>
 
 <!-- Expence Type Id Field -->
 <div class="form-group">
     {!! Form::label('expence_type_id', 'Expence Type Id:') !!}
-    <p>{!! $expenditure->expence_type()->name !!}</p>
+    <p>{!! $expenditure->expence_type['name'] !!}</p>
 </div>
 
 <!-- Description Field -->
