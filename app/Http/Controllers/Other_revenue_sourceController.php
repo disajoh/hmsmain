@@ -61,7 +61,7 @@ class Other_revenue_sourceController extends AppBaseController
 
         Flash::success('Other Revenue Source saved successfully.');
 
-        return redirect(route('otherRevenueSources.index'));
+        return redirect(route('otherRevenueSources.show', compact('otherRevenueSource')));
     }
 
     /**
@@ -126,7 +126,7 @@ class Other_revenue_sourceController extends AppBaseController
 
         Flash::success('Other Revenue Source updated successfully.');
 
-        return redirect(route('otherRevenueSources.index'));
+        return redirect(route('otherRevenueSources.show', compact('otherRevenueSource')));
     }
 
     /**

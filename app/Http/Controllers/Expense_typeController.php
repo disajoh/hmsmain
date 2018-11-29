@@ -61,7 +61,7 @@ class Expense_typeController extends AppBaseController
 
         Flash::success('Expense Type saved successfully.');
 
-        return redirect(route('expenseTypes.index'));
+        return redirect(route('expenseTypes.show', compact('expenseType')));
     }
 
     /**
@@ -126,7 +126,7 @@ class Expense_typeController extends AppBaseController
 
         Flash::success('Expense Type updated successfully.');
 
-        return redirect(route('expenseTypes.index'));
+        return redirect(route('expenseTypes.show', compact('expenseType')));
     }
 
     /**

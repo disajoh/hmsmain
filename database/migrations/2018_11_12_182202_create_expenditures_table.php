@@ -20,6 +20,7 @@ class CreateExpendituresTable extends Migration
             $table->string('description');
             $table->double('amount');
             $table->enum('payment_method', ['Cash', 'Cheque']);
+            $table->string('cheque_number')->nullable();
             $table->date('expense_date');
             $table->softDeletes();
             $table->timestamps();

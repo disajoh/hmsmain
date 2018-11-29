@@ -84,5 +84,9 @@ class Booking extends Model
         
     ];
 
+    public  function customer(){
+        
+        $this->belongsTo('App\Model\Customer');
+    }
     
 }

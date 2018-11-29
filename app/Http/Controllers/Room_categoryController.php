@@ -61,7 +61,7 @@ class Room_categoryController extends AppBaseController
 
         Flash::success('Room Category saved successfully.');
 
-        return redirect(route('roomCategories.index'));
+        return redirect(route('roomCategories.show', compact('roomCategory')));
     }
 
     /**
@@ -126,7 +126,7 @@ class Room_categoryController extends AppBaseController
 
         Flash::success('Room Category updated successfully.');
 
-        return redirect(route('roomCategories.index'));
+        return redirect(route('roomCategories.show', compact('roomCategory')));
     }
 
     /**

@@ -17,7 +17,7 @@ class CreateRoomsTable extends Migration
             $table->increments('id');
             $table->string('room_number');
             $table->integer('category_id');
-            $table->boolean('available')->default(true);
+            $table->boolean('available')->default(true)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

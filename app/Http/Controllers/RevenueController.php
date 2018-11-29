@@ -61,7 +61,7 @@ class RevenueController extends AppBaseController
 
         Flash::success('Revenue saved successfully.');
 
-        return redirect(route('revenues.index'));
+        return redirect(route('revenues.show', compact('revenue')));
     }
 
     /**
@@ -126,7 +126,7 @@ class RevenueController extends AppBaseController
 
         Flash::success('Revenue updated successfully.');
 
-        return redirect(route('revenues.index'));
+        return redirect(route('revenues.show', compact('revenue')));
     }
 
     /**

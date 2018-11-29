@@ -36,6 +36,7 @@ class Expenditure extends Model
         'description',
         'amount',
         'payment_method',
+        'cheque_number',
         'expense_date'
     ];
 
@@ -51,6 +52,7 @@ class Expenditure extends Model
         'description' => 'string',
         'amount' => 'float',
         'payment_method' => 'string',
+        'cheque_number' => 'string',
         'expense_date' => 'date'
     ];
 
@@ -63,5 +65,8 @@ class Expenditure extends Model
         
     ];
 
-    
+    public  function expense_type(){
+        
+        return $this->belongsTo('App\Model\Expense_type');
+    }
 }

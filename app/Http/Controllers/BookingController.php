@@ -88,7 +88,7 @@ class BookingController extends AppBaseController
 
         Flash::success('Booking saved successfully.');
 
-        return redirect(route('bookings.index'));
+        return redirect(route('bookings.show', compact('booking')));
     }
 
     /**
@@ -153,7 +153,7 @@ class BookingController extends AppBaseController
 
         Flash::success('Booking updated successfully.');
 
-        return redirect(route('bookings.index'));
+        return redirect(route('bookings.show',compact('booking')));
     }
 
     /**

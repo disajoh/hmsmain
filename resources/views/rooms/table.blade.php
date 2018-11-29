@@ -12,7 +12,17 @@
         <tr>
             <td>{!! $room->room_number !!}</td>
             <td>{!! $room->category_id !!}</td>
-            <td>{!! $room->available !!}</td>
+
+            <td>
+                @if($room->available == 1)
+                
+                    Available
+                @else
+
+                    Occupied
+
+                @endif
+            </td>
             <td>
                 {!! Form::open(['route' => ['rooms.destroy', $room->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
