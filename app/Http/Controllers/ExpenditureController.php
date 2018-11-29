@@ -61,7 +61,7 @@ class ExpenditureController extends AppBaseController
 
         Flash::success('Expenditure saved successfully.');
 
-        return redirect(route('expenditures.index'));
+        return redirect(route('expenditures.show', compact('expenditure')));
     }
 
     /**
@@ -100,7 +100,7 @@ class ExpenditureController extends AppBaseController
 
             return redirect(route('expenditures.index'));
         }
-
+        
         return view('expenditures.edit')->with('expenditure', $expenditure);
     }
 
@@ -126,7 +126,7 @@ class ExpenditureController extends AppBaseController
 
         Flash::success('Expenditure updated successfully.');
 
-        return redirect(route('expenditures.index'));
+        return redirect(route('expenditures.show', compact('expenditure')));
     }
 
     /**

@@ -61,7 +61,7 @@ class CustomerController extends AppBaseController
 
         Flash::success('Customer saved successfully.');
 
-        return redirect(route('customers.index'));
+        return redirect(route('customers.show', compact('customer')));
     }
 
     /**
@@ -126,7 +126,7 @@ class CustomerController extends AppBaseController
 
         Flash::success('Customer updated successfully.');
 
-        return redirect(route('customers.index'));
+        return redirect(route('customers.show', compact('customer')));
     }
 
     /**

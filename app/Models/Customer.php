@@ -75,5 +75,9 @@ class Customer extends Model
         
     ];
 
+    public  function booking(){
+        
+        $this->hasMany('App\Model\Booking');
+    }
     
 }

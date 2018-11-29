@@ -14,7 +14,7 @@
                    {!! Form::model($expenditure, ['route' => ['expenditures.update', $expenditure->id], 'method' => 'patch']) !!}
 
                         @include('expenditures.fields')
-
+                        
                    {!! Form::close() !!}
                </div>
            </div>

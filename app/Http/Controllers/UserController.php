@@ -61,7 +61,7 @@ class UserController extends AppBaseController
 
         Flash::success('User saved successfully.');
 
-        return redirect(route('users.index'));
+        return redirect(route('users.show', compact('user')));
     }
 
     /**
@@ -126,7 +126,7 @@ class UserController extends AppBaseController
 
         Flash::success('User updated successfully.');
 
-        return redirect(route('users.index'));
+        return redirect(route('users.show',compact('user')));
     }
 
     /**

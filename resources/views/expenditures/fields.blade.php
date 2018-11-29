@@ -25,8 +25,17 @@
 <!-- Payment Method Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('payment_method', 'Payment Method:') !!}
-    {!! Form::text('payment_method', null, ['class' => 'form-control']) !!}
+    {!! Form::select('payment_method',['cash'=>'Cash','cheque'=>'Cheque']) !!}
+    
 </div>
+
+<!-- Cheque Number -->
+<div class="form-group col-sm-6">
+    {!! Form::label('cheque_number', 'Cheque Number:') !!}
+    {!! Form::text('cheque_number',null, ['class' => 'form-control']) !!}
+    
+</div>
+
 
 <!-- Expense Date Field -->
 <div class="form-group col-sm-6">

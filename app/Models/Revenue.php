@@ -57,5 +57,8 @@ class Revenue extends Model
         
     ];
 
-    
+    public  function other_revenue_source(){
+        
+       return $this->belongsTo('App\Model\Other_revenue_source');
+    }
 }

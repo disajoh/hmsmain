@@ -54,5 +54,8 @@ class Room extends Model
         
     ];
 
-    
+    public  function room_category(){
+         
+         return $this->belongsTo('App\Model\Room_category');
+    }
 }

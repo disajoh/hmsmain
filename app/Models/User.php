@@ -73,12 +73,15 @@ class User extends Model
         'role_id'=> ['nullable', 'numeric', 'min:1'],
         'first_name' => ['required', 'string', 'max:255'],
         'surname' => ['required', 'string', 'max:255'],
-        'other_name' => ['string', 'max:255'],
+        'other_name' => ['nullable','string', 'max:255'],
         'phone' => ['required','string', 'max:255',  'unique:users'],
-        'address' => ['required','integer', 'max:255'],
+        'address' => ['required','string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'password' => ['required', 'string', 'min:6', 'confirmed'],
     ];
 
-    
+    public  function role(){
+        
+        return $this->hasMany('App\Model\Role');
+    }
 }

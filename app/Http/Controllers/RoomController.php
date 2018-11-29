@@ -61,7 +61,7 @@ class RoomController extends AppBaseController
 
         Flash::success('Room saved successfully.');
 
-        return redirect(route('rooms.index'));
+        return redirect(route('rooms.show',compact('show')));
     }
 
     /**
@@ -126,7 +126,7 @@ class RoomController extends AppBaseController
 
         Flash::success('Room updated successfully.');
 
-        return redirect(route('rooms.index'));
+        return redirect(route('rooms.show', compact('room')));
     }
 
     /**

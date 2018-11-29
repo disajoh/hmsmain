@@ -61,7 +61,7 @@ class RoleController extends AppBaseController
 
         Flash::success('Role saved successfully.');
 
-        return redirect(route('roles.index'));
+        return redirect(route('roles.show', compact('role')));
     }
 
     /**
@@ -126,7 +126,7 @@ class RoleController extends AppBaseController
 
         Flash::success('Role updated successfully.');
 
-        return redirect(route('roles.index'));
+        return redirect(route('roles.show', compact('role')));
     }
 
     /**
