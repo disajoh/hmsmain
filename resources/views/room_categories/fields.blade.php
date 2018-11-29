@@ -1,8 +1,4 @@
 <!-- Building Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('building_id', 'Building Id:') !!}
-    {!! Form::number('building_id', null, ['class' => 'form-control']) !!}
-</div>
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">

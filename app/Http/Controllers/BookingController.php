@@ -3,22 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateBookingRequest;
+use App\Http\Requests\CreateCustomerRequest;
 use App\Http\Requests\UpdateBookingRequest;
 use App\Repositories\BookingRepository;
+use App\Repositories\CustomerRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Auth;
+use CustomerController;
 
 class BookingController extends AppBaseController
 {
     /** @var  BookingRepository */
     private $bookingRepository;
+    private $customerRepository;
 
-    public function __construct(BookingRepository $bookingRepo)
+    public function __construct(BookingRepository $bookingRepo, CustomerRepository $customerRepo)
     {
         $this->bookingRepository = $bookingRepo;
+        $this->customerRepository = $customerRepo;
     }
 
     /**
@@ -37,7 +43,8 @@ class BookingController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new Booking.
+     * Show the form for creating a new Booking for
+     * an existing customer.
      *
      * @return Response
      */
@@ -47,17 +54,37 @@ class BookingController extends AppBaseController
     }
 
     /**
+     * Show the form for creating a new Booking for 
+     * a new customer.
+     *
+     * @return Response
+     */
+    public function new()
+    {
+        return view('bookings.new');
+    }
+
+    /**
      * Store a newly created Booking in storage.
      *
      * @param CreateBookingRequest $request
      *
      * @return Response
      */
-    public function store(CreateBookingRequest $request)
+    public function store(CreateCustomerRequest $request1, CreateBookingRequest $request2)
     {
-        $input = $request->all();
+        $input1 = $request1->all();
+        $input2 = $request2->all();
 
-        $booking = $this->bookingRepository->create($input);
+        //add new customer first
+        $customer = $this->customerRepository->create($input1);
+
+        //get customer and user id;
+        $input2['customer_id']=$customer->id;
+        $input2['user_id'] = Auth::user()->id;
+
+        //add booking for the new customer
+        $booking = $this->bookingRepository->create($input2);
 
         Flash::success('Booking saved successfully.');
 

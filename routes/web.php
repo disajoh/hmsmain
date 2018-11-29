@@ -43,3 +43,4 @@ Route::resource('revenues', 'RevenueController');
 Route::resource('expenseTypes', 'Expense_typeController');
 
 Route::resource('otherRevenueSources', 'Other_revenue_sourceController');
+Route::get('so/new', 'BookingController@new')->name('new');

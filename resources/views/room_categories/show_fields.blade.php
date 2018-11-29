@@ -4,11 +4,6 @@
     <p>{!! $roomCategory->id !!}</p>
 </div>
 
-<!-- Building Id Field -->
-<div class="form-group">
-    {!! Form::label('building_id', 'Building Id:') !!}
-    <p>{!! $roomCategory->building_id !!}</p>
-</div>
 
 <!-- Name Field -->
 <div class="form-group">

@@ -1,16 +1,14 @@
 <table class="table table-responsive" id="roomCategories-table">
     <thead>
         <tr>
-            <th>Building Id</th>
-        <th>Name</th>
-        <th>Price</th>
+            <th>Name</th>
+            <th>Price</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($roomCategories as $roomCategory)
         <tr>
-            <td>{!! $roomCategory->building_id !!}</td>
             <td>{!! $roomCategory->name !!}</td>
             <td>{!! $roomCategory->price !!}</td>
             <td>
