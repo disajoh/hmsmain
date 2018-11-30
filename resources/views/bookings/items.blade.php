@@ -73,8 +73,7 @@
       <label for="sel1">Rooms:</label>
       <select class="form-control" id="sel1">
         @foreach($rooms as $room)
-            
-            <option value="{{ $room['id'] }}">{{ $room['room_number'] }}</option>
+            <option value="{{ $room['id'] }}">{{ $room['room_number'] }} | {{ $room->roomcategory['name'] }}</option>
 
         @endforeach
       </select>

@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Room Number</th>
-        <th>Category Id</th>
+        <th>Room Category</th>
         <th>Available</th>
             <th colspan="3">Action</th>
         </tr>
@@ -11,7 +11,7 @@
     @foreach($rooms as $room)
         <tr>
             <td><a href="{!! route('rooms.show', [$room->id]) !!}">{!! $room->room_number !!}</a></td>
-            <td><a href="{!! route('rooms.show', [$room->id]) !!}">{!! $room->roomcategory['price'] !!}</a></td>
+            <td><a href="{!! route('rooms.show', [$room->id]) !!}">{!! $room->roomcategory['name'] !!} | {!! $room->roomcategory['price'] !!}</a></td>
 
             <td> <a href="{!! route('rooms.show', [$room->id]) !!}">
                 @if($room->available == 1)

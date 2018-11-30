@@ -26,7 +26,6 @@
                 {!! $booking->customer['first_name'] .' '.$booking->customer['surname']!!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->arrival_date->format('D d, M, Y') !!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->departure_date->format('D d, M, Y') !!}</a></td>
-            <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->vehicle_number !!}</a></td> 
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->reserved_by !!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->amount_paid !!}</a></td>
             <!-- <td>{!! $booking->discount !!}</td> -->

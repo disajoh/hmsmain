@@ -69,7 +69,7 @@ class Expenditure extends Model
 
     public  function expense_type(){
         
-        return $this->belongsTo(Expense_type::class);
+        return $this->belongsTo(Expense_type::class, 'expence_type_id');
     }
 
     public  function user(){
