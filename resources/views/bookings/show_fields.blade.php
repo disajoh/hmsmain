@@ -12,6 +12,8 @@
 </div>
 <hr>
 
+
+
 <!-- Customer Id Field -->
 <div class="form-group">
     {!! Form::label('customer_id', 'Customer Name:      ') !!}

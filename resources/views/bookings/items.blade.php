@@ -71,7 +71,7 @@
     <!-- Room Id Field -->
     <div class="form-group col-sm-6">
       <label for="sel1">Rooms:</label>
-      <select class="form-control" id="sel1">
+      <select class="form-control" id="sel1" name="room_id">
         @foreach($rooms as $room)
             @if($room['available'] == true)
                 <option value="{{ $room['id'] }}">{{ $room['room_number'] }} | {{ $room->roomcategory['name'] }}</option>

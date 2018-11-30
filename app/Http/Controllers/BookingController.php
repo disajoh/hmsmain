@@ -77,7 +77,7 @@ class BookingController extends AppBaseController
     {
         $input1 = $request1->all();
         $input2 = $request2->all();
-
+        
         //add new customer first
         $customer = $this->customerRepository->create($input1);
 

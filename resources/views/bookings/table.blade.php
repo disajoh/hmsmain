@@ -3,7 +3,7 @@
         <tr>
             <th>Staff</th>
         <th>Room Number</th>
-        <th>Customer Id</th>
+        <th>Customer</th>
         <th>Arrival Date</th>
         <th>Departure Date</th>
         <!-- <th>Purpose</th>
