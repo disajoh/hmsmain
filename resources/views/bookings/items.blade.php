@@ -73,8 +73,9 @@
       <label for="sel1">Rooms:</label>
       <select class="form-control" id="sel1">
         @foreach($rooms as $room)
-            <option value="{{ $room['id'] }}">{{ $room['room_number'] }} | {{ $room->roomcategory['name'] }}</option>
-
+            @if($room['available'] == true)
+                <option value="{{ $room['id'] }}">{{ $room['room_number'] }} | {{ $room->roomcategory['name'] }}</option>
+            @endif
         @endforeach
       </select>
     </div>
