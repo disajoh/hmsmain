@@ -2,42 +2,42 @@
 <!-- User Id Field -->
 <div class="form-group">
     {!! Form::label('user_id', 'Staff:') !!}
-    <p>{!! $expenditure->user['first_name'] !!}</p>
+    {!! $expenditure->user['first_name'] !!}
 </div>
 
 <!-- Expence Type Id Field -->
 <div class="form-group">
     {!! Form::label('expence_type_id', 'Expence Type Id:') !!}
-    <p>{!! $expenditure->expence_type['name'] !!}</p>
+    {!! $expenditure->expence_type['name'] !!}
 </div>
 
 <!-- Description Field -->
 <div class="form-group">
     {!! Form::label('description', 'Description:') !!}
-    <p>{!! $expenditure->description !!}</p>
+    {!! $expenditure->description !!}
 </div>
 
 <!-- Amount Field -->
 <div class="form-group">
     {!! Form::label('amount', 'Amount:') !!}
-    <p>{!! $expenditure->amount !!}</p>
+    {!! $expenditure->amount !!}
 </div>
 
 <!-- Payment Method Field -->
 <div class="form-group">
     {!! Form::label('payment_method', 'Payment Method:') !!}
-    <p>{!! $expenditure->payment_method !!}</p>
+    {!! $expenditure->payment_method !!}
 </div>
 
 <!-- Cheque Number for cheque payments -->
 <div class="form-group">
     {!! Form::label('cheque_number', 'Cheque Number:') !!}
-    <p>{!! $expenditure->cheque_number !!}</p>
+    {!! $expenditure->cheque_number !!}
 </div>
 
 <!-- Expense Date Field -->
 <div class="form-group">
     {!! Form::label('expense_date', 'Expense Date:') !!}
-    <p>{!! $expenditure->expense_date !!}</p>
+    {!! $expenditure->expense_date->format('D d, M, Y') !!}
 </div>
 

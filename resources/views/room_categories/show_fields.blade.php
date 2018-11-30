@@ -1,31 +1,31 @@
 <!-- Id Field -->
-<div class="form-group">
+<!-- <div class="form-group">
     {!! Form::label('id', 'Id:') !!}
     <p>{!! $roomCategory->id !!}</p>
 </div>
 
-
+ -->
 <!-- Name Field -->
 <div class="form-group">
     {!! Form::label('name', 'Name:') !!}
-    <p>{!! $roomCategory->name !!}</p>
+    {!! $roomCategory->name !!}
 </div>
 
 <!-- Price Field -->
 <div class="form-group">
     {!! Form::label('price', 'Price:') !!}
-    <p>{!! $roomCategory->price !!}</p>
+    {!! $roomCategory->price !!}
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $roomCategory->created_at !!}</p>
+    {!! Form::label('created_at', 'Added on:') !!}
+    {!! $roomCategory->created_at->format('D d, M, Y') !!}
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $roomCategory->updated_at !!}</p>
+    {!! Form::label('updated_at', 'Updated:') !!}
+    {!! $roomCategory->updated_at->format('D d, M, Y') !!}
 </div>
 

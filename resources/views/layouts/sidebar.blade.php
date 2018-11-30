@@ -6,22 +6,25 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg" class="img-circle"
-                     alt="User Image"/>
+                <img src="#" class="img-circle"  alt=""/>
+                <b />
+                <b />
             </div>
-            <div class="pull-left info">
+            <div class=" info">
                 @if (Auth::guest())
                 <p>Bagale</p>
                 @else
-                    <p>{{ Auth::user()->name}}</p>
+                    <p>{{ Auth::user()->first_name}}</p>
                 @endif
+               
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+
             </div>
         </div>
 
         <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
+       <!--  <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
           <span class="input-group-btn">
@@ -29,7 +32,7 @@
             </button>
           </span>
             </div>
-        </form>
+        </form>  -->
         <!-- Sidebar Menu -->
 
         <ul class="sidebar-menu" data-widget="tree">

@@ -1,96 +1,102 @@
 <!-- Id Field -->
-<div class="form-group">
+<!-- <div class="form-group">
     {!! Form::label('id', 'Id:') !!}
-    <p>{!! $booking->id !!}</p>
+    <p>{!! $booking->id !!}
 </div>
-
-<!-- User Id Field -->
-<div class="form-group">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{!! $booking->user_id !!}</p>
-</div>
+ -->
 
 <!-- Room Id Field -->
 <div class="form-group">
-    {!! Form::label('room_id', 'Room Id:') !!}
-    <p>{!! $booking->room_id !!}</p>
+    {!! Form::label('room_id', 'Room Number:      ') !!}         
+    {!! $booking->room['room_number'] !!}
 </div>
+<hr>
 
 <!-- Customer Id Field -->
 <div class="form-group">
-    {!! Form::label('customer_id', 'Customer Id:') !!}
-    <p>{!! $booking->customer_id !!}</p>
+    {!! Form::label('customer_id', 'Customer Name:      ') !!}
+    {!! $booking->customer['first_name'] .' '. $booking->customer['surname'] !!}
 </div>
+<hr>
 
 <!-- Arrival Date Field -->
 <div class="form-group">
     {!! Form::label('arrival_date', 'Arrival Date:') !!}
-    <p>{!! $booking->arrival_date !!}</p>
+    {!! $booking->arrival_date->format('D d, M, Y') !!}
 </div>
-
+<hr>
 <!-- Departure Date Field -->
 <div class="form-group">
     {!! Form::label('departure_date', 'Departure Date:') !!}
-    <p>{!! $booking->departure_date !!}</p>
+    {!! $booking->departure_date->format('D d, M, Y') !!}
 </div>
-
+<hr>
 <!-- Purpose Field -->
 <div class="form-group">
     {!! Form::label('purpose', 'Purpose:') !!}
-    <p>{!! $booking->purpose !!}</p>
+    {!! $booking->purpose !!}
 </div>
-
+<hr>
 <!-- Next Destination Field -->
 <div class="form-group">
     {!! Form::label('next_destination', 'Next Destination:') !!}
-    <p>{!! $booking->next_destination !!}</p>
+    {!! $booking->next_destination !!}
 </div>
-
+<hr>
 <!-- Transport Means Field -->
 <div class="form-group">
     {!! Form::label('transport_means', 'Transport Means:') !!}
-    <p>{!! $booking->transport_means !!}</p>
+    {!! $booking->transport_means !!}
 </div>
-
+<hr>
 <!-- Where From Field -->
 <div class="form-group">
     {!! Form::label('where_from', 'Where From:') !!}
-    <p>{!! $booking->where_from !!}</p>
+    {!! $booking->where_from !!}
 </div>
-
+<hr>
 <!-- Vehicle Number Field -->
 <div class="form-group">
     {!! Form::label('vehicle_number', 'Vehicle Number:') !!}
-    <p>{!! $booking->vehicle_number !!}</p>
+    {!! $booking->vehicle_number !!}
 </div>
-
+<hr>
 <!-- Reserved By Field -->
 <div class="form-group">
     {!! Form::label('reserved_by', 'Reserved By:') !!}
-    <p>{!! $booking->reserved_by !!}</p>
+    {!! $booking->reserved_by !!}
 </div>
-
+<hr>
 <!-- Amount Paid Field -->
 <div class="form-group">
     {!! Form::label('amount_paid', 'Amount Paid:') !!}
-    <p>{!! $booking->amount_paid !!}</p>
+    {!! $booking->amount_paid !!}
 </div>
-
-<!-- Discount Field -->
-<div class="form-group">
-    {!! Form::label('discount', 'Discount:') !!}
-    <p>{!! $booking->discount !!}</p>
-</div>
+<hr>
+@if($booking->discount > 0)
+    <!-- Discount Field -->
+    <div class="form-group">
+        {!! Form::label('discount', 'Discount:') !!}
+        {!! $booking->discount !!}
+    </div>
+    <hr>
+@endif
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $booking->created_at !!}</p>
+    {!! Form::label('created_at', 'Booked:') !!}
+    {!! $booking->created_at->format('D d, M, Y') !!}
 </div>
-
+<hr>
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $booking->updated_at !!}</p>
+    {!! Form::label('updated_at', 'Updated:') !!}
+    {!! $booking->updated_at->format('D d, M, Y') !!}
 </div>
-
+<hr>
+<!-- User Id Field -->
+<div class="form-group">
+    {!! Form::label('user_id', 'Booking Staff:') !!}
+    {!! $booking->user['first_name'] !!}
+</div>
+<hr>

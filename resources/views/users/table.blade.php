@@ -17,7 +17,7 @@
     @foreach($users as $user)
         <tr>
             
-
+               
             <td>
                 <a href="{!! route('users.show', [$user->id]) !!}">
                     {{$user->first_name ." ". $user->surname}} 

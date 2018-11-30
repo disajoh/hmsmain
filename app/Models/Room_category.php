@@ -56,7 +56,7 @@ class Room_category extends Model
 
     public  function room(){
         
-        return $this->hasMany('App\Model\Room');
+        return $this->hasMany(Room::class);
     }
     
 }

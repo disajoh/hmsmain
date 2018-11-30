@@ -12,11 +12,12 @@
     <tbody>
     @foreach($expenditures as $expenditure)
         <tr>
-            <td>{!! $expenditure->description !!}</td>
-            <td>{!! $expenditure->amount !!}</td>
-            <td>{!! $expenditure->payment_method !!}</td>
-            <td>{!! $expenditure->cheque_number !!}</td>
-            <td>{!! $expenditure->expense_date->format('D d, M, Y') !!}</td>
+            <td><a href="{!! route('expenditures.show', [$expenditure->id]) !!}">{!! $expenditure->description !!}</a></td>
+            <td><a href="{!! route('expenditures.show', [$expenditure->id]) !!}">{!! $expenditure->amount !!}</a></td>
+            <td><a href="{!! route('expenditures.show', [$expenditure->id]) !!}">{!! $expenditure->payment_method !!}</a></td>
+            <td><a href="{!! route('expenditures.show', [$expenditure->id]) !!}">{!! $expenditure->cheque_number !!}</a></td>
+            <td><a href="{!! route('expenditures.show', [$expenditure->id]) !!}">{!! $expenditure->expense_date->format('D d, M, Y') !!}</a></td>
+
             <td>
                 {!! Form::open(['route' => ['expenditures.destroy', $expenditure->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

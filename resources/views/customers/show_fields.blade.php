@@ -1,78 +1,78 @@
 <!-- Id Field -->
-<div class="form-group">
+<!-- <div class="form-group">
     {!! Form::label('id', 'Id:') !!}
-    <p>{!! $customer->id !!}</p>
-</div>
+    <p>{!! $customer->id !!}
+</div> -->
 
 <!-- First Name Field -->
 <div class="form-group">
     {!! Form::label('first_name', 'First Name:') !!}
-    <p>{!! $customer->first_name !!}</p>
+    {!! $customer->first_name !!}
 </div>
 
 <!-- Surname Field -->
 <div class="form-group">
     {!! Form::label('surname', 'Surname:') !!}
-    <p>{!! $customer->surname !!}</p>
+    {!! $customer->surname !!}
 </div>
 
 <!-- Other Name Field -->
 <div class="form-group">
     {!! Form::label('other_name', 'Other Name:') !!}
-    <p>{!! $customer->other_name !!}</p>
+    {!! $customer->other_name !!}
 </div>
 
 <!-- Phone Field -->
 <div class="form-group">
     {!! Form::label('phone', 'Phone:') !!}
-    <p>{!! $customer->phone !!}</p>
+    {!! $customer->phone !!}
 </div>
 
 <!-- Email Field -->
 <div class="form-group">
     {!! Form::label('email', 'Email:') !!}
-    <p>{!! $customer->email !!}</p>
+    {!! $customer->email !!}
 </div>
 
 <!-- Occupation Field -->
 <div class="form-group">
     {!! Form::label('occupation', 'Occupation:') !!}
-    <p>{!! $customer->occupation !!}</p>
+    {!! $customer->occupation !!}
 </div>
 
 <!-- Nationality Field -->
 <div class="form-group">
     {!! Form::label('nationality', 'Nationality:') !!}
-    <p>{!! $customer->nationality !!}</p>
+    {!! $customer->nationality !!}
 </div>
 
 <!-- Address Field -->
 <div class="form-group">
     {!! Form::label('address', 'Address:') !!}
-    <p>{!! $customer->address !!}</p>
+    {!! $customer->address !!}
 </div>
 
 <!-- Passport Number Field -->
 <div class="form-group">
     {!! Form::label('passport_number', 'Passport Number:') !!}
-    <p>{!! $customer->passport_number !!}</p>
+    {!! $customer->passport_number !!}
 </div>
 
 <!-- Date Issued Field -->
 <div class="form-group">
-    {!! Form::label('date_issued', 'Date Issued:') !!}
-    <p>{!! $customer->date_issued !!}</p>
+    {!! Form::label('date_issued', 'Date Issued Passport:') !!}
+    {!! $customer->date_issued->format('D d, M, Y') !!}
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $customer->created_at !!}</p>
+    {!! Form::label('created_at', 'Registered:') !!}
+    {!! $customer->created_at->format('D d, M, Y') !!}
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $customer->updated_at !!}</p>
+    {!! Form::label('updated_at', 'Updated:') !!}
+    {!! $customer->updated_at->format('D d, M, Y') !!}
 </div>
 

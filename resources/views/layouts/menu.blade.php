@@ -2,9 +2,6 @@
     <a href="{!! route('users.index') !!}"><i class="fa fa-edit"></i><span>Users</span></a>
 </li>
 
-<li class="{{ Request::is('expenditures*') ? 'active' : '' }}">
-    <a href="{!! route('expenditures.index') !!}"><i class="fa fa-edit"></i><span>Expenditures</span></a>
-</li>
 
 <li class="{{ Request::is('roomCategories*') ? 'active' : '' }}">
     <a href="{!! route('roomCategories.index') !!}"><i class="fa fa-edit"></i><span>Room Categories</span></a>
@@ -26,10 +23,16 @@
     <a href="{!! route('customers.index') !!}"><i class="fa fa-edit"></i><span>Customers</span></a>
 </li>
 
-<li class="{{ Request::is('roles*') ? 'active' : '' }}">
-    <a href="{!! route('roles.index') !!}"><i class="fa fa-edit"></i><span>Roles</span></a>
+
+@if(Auth::user()->role_id < 4)
+
+<li class="{{ Request::is('expenditures*') ? 'active' : '' }}">
+    <a href="{!! route('expenditures.index') !!}"><i class="fa fa-edit"></i><span>Expenditures</span></a>
 </li>
 
+@endif
+
+@if(Auth::user()->role_id < 3)
 <li class="{{ Request::is('revenues*') ? 'active' : '' }}">
     <a href="{!! route('revenues.index') !!}"><i class="fa fa-edit"></i><span>Revenues</span></a>
 </li>
@@ -42,3 +45,12 @@
     <a href="{!! route('otherRevenueSources.index') !!}"><i class="fa fa-edit"></i><span>Other Revenue Sources</span></a>
 </li>
 
+@endif
+
+
+@if(Auth::user()->role_id == 1)
+<li class="{{ Request::is('roles*') ? 'active' : '' }}">
+    <a href="{!! route('roles.index') !!}"><i class="fa fa-edit"></i><span>Roles</span></a>
+</li>
+
+@endif

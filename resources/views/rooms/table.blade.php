@@ -10,10 +10,10 @@
     <tbody>
     @foreach($rooms as $room)
         <tr>
-            <td>{!! $room->room_number !!}</td>
-            <td>{!! $room->category_id !!}</td>
+            <td><a href="{!! route('rooms.show', [$room->id]) !!}">{!! $room->room_number !!}</a></td>
+            <td><a href="{!! route('rooms.show', [$room->id]) !!}">{!! $room->roomcategory['price'] !!}</a></td>
 
-            <td>
+            <td> <a href="{!! route('rooms.show', [$room->id]) !!}">
                 @if($room->available == 1)
                 
                     Available
@@ -22,6 +22,7 @@
                     Occupied
 
                 @endif
+                </a>
             </td>
             <td>
                 {!! Form::open(['route' => ['rooms.destroy', $room->id], 'method' => 'delete']) !!}
