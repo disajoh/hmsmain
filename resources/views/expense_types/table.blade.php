@@ -9,8 +9,8 @@
     <tbody>
     @foreach($expenseTypes as $expenseType)
         <tr>
-            <td>{!! $expenseType->name !!}</td>
-            <td>{!! $expenseType->description !!}</td>
+            <td><a href="{!! route('expenseTypes.show', [$expenseType->id]) !!}">{!! $expenseType->name !!}</a></td>
+            <td><a href="{!! route('expenseTypes.show', [$expenseType->id]) !!}">{!! $expenseType->description !!}</a></td>
             <td>
                 {!! Form::open(['route' => ['expenseTypes.destroy', $expenseType->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

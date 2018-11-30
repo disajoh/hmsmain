@@ -70,8 +70,14 @@
     
     <!-- Room Id Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('room_id', 'Room Id:') !!}
-        {!! Form::number('room_id', null, ['class' => 'form-control']) !!}
+      <label for="sel1">Rooms:</label>
+      <select class="form-control" id="sel1">
+        @foreach($rooms as $room)
+            
+            <option value="{{ $room['id'] }}">{{ $room['room_number'] }}</option>
+
+        @endforeach
+      </select>
     </div>
 
     <!-- Arrival Date Field -->

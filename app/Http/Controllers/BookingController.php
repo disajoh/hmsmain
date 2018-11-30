@@ -61,8 +61,9 @@ class BookingController extends AppBaseController
      * @return Response
      */
     public function new()
-    {
-        return view('bookings.new');
+    {   
+        $rooms = Room::all();
+        return view('bookings.new', compact('rooms'));
     }
 
     /**

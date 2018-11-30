@@ -1,30 +1,30 @@
 <!-- Id Field -->
-<div class="form-group">
+<!-- <div class="form-group">
     {!! Form::label('id', 'Id:') !!}
     <p>{!! $otherRevenueSource->id !!}</p>
-</div>
+</div> -->
 
 <!-- Name Field -->
 <div class="form-group">
     {!! Form::label('name', 'Name:') !!}
-    <p>{!! $otherRevenueSource->name !!}</p>
+    {!! $otherRevenueSource->name !!}
 </div>
 
 <!-- Description Field -->
 <div class="form-group">
     {!! Form::label('description', 'Description:') !!}
-    <p>{!! $otherRevenueSource->description !!}</p>
+    {!! $otherRevenueSource->description !!}
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $otherRevenueSource->created_at !!}</p>
+    {!! Form::label('created_at', 'Added:') !!}
+    {!! $otherRevenueSource->created_at->format('D d, M, Y') !!}
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $otherRevenueSource->updated_at !!}</p>
+    {!! Form::label('updated_at', 'Updated:') !!}
+    {!! $otherRevenueSource->updated_at->format('D d, M, Y') !!}
 </div>
 

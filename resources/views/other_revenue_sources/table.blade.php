@@ -9,8 +9,8 @@
     <tbody>
     @foreach($otherRevenueSources as $otherRevenueSource)
         <tr>
-            <td>{!! $otherRevenueSource->name !!}</td>
-            <td>{!! $otherRevenueSource->description !!}</td>
+            <td><a href="{!! route('otherRevenueSources.show', [$otherRevenueSource->id]) !!}">{!! $otherRevenueSource->name !!}</a></td>
+            <td><a href="{!! route('otherRevenueSources.show', [$otherRevenueSource->id]) !!}">{!! $otherRevenueSource->description !!}</a></td>
             <td>
                 {!! Form::open(['route' => ['otherRevenueSources.destroy', $otherRevenueSource->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
