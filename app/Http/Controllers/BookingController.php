@@ -16,6 +16,7 @@ use Auth;
 use CustomerController;
 use App\Models\Room;
 use App\Models\Booking;
+use App\Models\Customer;
 
 class BookingController extends AppBaseController
 {
@@ -52,7 +53,9 @@ class BookingController extends AppBaseController
      */
     public function create()
     {
-        return view('bookings.create');
+        $customers = Customer::all();
+        $rooms = Room::all();
+        return view('bookings.create',compact('rooms','customers'));
     }
 
     /**

@@ -1,19 +1,23 @@
-<!-- User Id Field -->
+<!-- Customer Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('user_id', 'User Id:') !!}
-    {!! Form::number('user_id', null, ['class' => 'form-control']) !!}
+    <label for="sel1">Customer Name:</label>
+    <select class="form-control" data-live-search="true" name="customer_id">
+        @foreach($customers as $customer)
+            <option value="{{ $customer['id'] }}"  data-tokens="{{ $customer['first_name'] }}">{{ $customer['first_name'] }} {{ $customer['surname'] }}</option>
+        @endforeach
+    </select>
 </div>
 
 <!-- Room Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('room_id', 'Room Id:') !!}
-    {!! Form::number('room_id', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Customer Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('customer_id', 'Customer Id:') !!}
-    {!! Form::number('customer_id', null, ['class' => 'form-control']) !!}
+    <label for="sel1">Rooms:</label>
+    <select class="form-control" id="sel1" name="room_id">
+        @foreach($rooms as $room)
+            @if($room['available'] == true)
+                <option value="{{ $room['id'] }}">{{ $room['room_number'] }} | {{ $room->roomcategory['name'] }}</option>
+            @endif
+        @endforeach
+    </select>
 </div>
 
 <!-- Arrival Date Field -->
