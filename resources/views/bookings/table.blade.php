@@ -13,6 +13,7 @@
         <th>Vehicle Number</th> -->
         <th>Reserved By</th>
         <th>Amount Paid</th>
+        <th>Status</th>
         <!-- <th>Discount</th> -->
             <th colspan="3">Action</th>
         </tr>
@@ -28,13 +29,28 @@
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->departure_date->format('D d, M, Y') !!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->reserved_by !!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->amount_paid !!}</a></td>
+            
+            <td> <a href="{!! route('bookings.show', [$booking->id]) !!}">
+                @if($booking->active == 1)
+                
+                    Active
+                @else
+
+                    Checked Out
+
+                @endif
+                </a>
+            </td>
             <!-- <td>{!! $booking->discount !!}</td> -->
             <td>
                 {!! Form::open(['route' => ['bookings.destroy', $booking->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
                     <a href="{!! route('bookings.show', [$booking->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                    
                     <a href="{!! route('bookings.edit', [$booking->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+
+
+                    {!! Form::button('<i class="glyphicon glyphicon-eject"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>

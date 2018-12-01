@@ -102,3 +102,16 @@
     {!! $booking->user['first_name'] !!}
 </div>
 <hr>
+<!-- Status Field -->
+<div class="form-group">
+    {!! Form::label('active', 'Booking Status:') !!}
+    @if($booking->active == 1)
+                
+                    {!! "Active"!!}
+                @else
+
+                    {!! "Checked Out"!!}
+
+                @endif
+</div>
+<hr>
