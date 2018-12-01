@@ -80,10 +80,10 @@ class BookingController extends AppBaseController
         $input2 = $request2->all();
         
         //add new customer first
-        $customer = $this->customerRepository->create($input1);
-
-        //get customer and user id;
-        $input2['customer_id']=$customer->id;
+        if (isset($input1['first_name'])) {
+            $customer = $this->customerRepository->create($input1);
+            $input2['customer_id']=$customer->id;
+        }
         $input2['user_id'] = Auth::user()->id;
 
         //add booking for the new customer
