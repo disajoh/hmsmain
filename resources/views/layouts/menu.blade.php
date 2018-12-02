@@ -53,4 +53,7 @@
     <a href="{!! route('roles.index') !!}"><i class="fa fa-edit"></i><span>Roles</span></a>
 </li>
 
-@endif
+@endif<li class="{{ Request::is('payments*') ? 'active' : '' }}">
+    <a href="{!! route('payments.index') !!}"><i class="fa fa-edit"></i><span>Payments</span></a>
+</li>
+

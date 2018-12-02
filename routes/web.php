@@ -65,3 +65,6 @@ Route::group(['middleware'=>'auth'], function(){
 
 });
 
+
+
+Route::resource('payments', 'PaymentController');
