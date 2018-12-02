@@ -69,7 +69,7 @@ class BookingController extends AppBaseController
         $rooms = Room::all();
         return view('bookings.new', compact('rooms'));
     }
-
+    
     /**
      * Store a newly created Booking in storage.
      *

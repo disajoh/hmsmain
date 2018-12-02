@@ -69,20 +69,6 @@
     {!! $booking->reserved_by !!}
 </div>
 <hr>
-<!-- Amount Paid Field -->
-<div class="form-group">
-    {!! Form::label('amount_paid', 'Amount Paid:') !!}
-    {!! $booking->amount_paid !!}
-</div>
-<hr>
-@if($booking->discount > 0)
-    <!-- Discount Field -->
-    <div class="form-group">
-        {!! Form::label('discount', 'Discount:') !!}
-        {!! $booking->discount !!}
-    </div>
-    <hr>
-@endif
 
 <!-- Created At Field -->
 <div class="form-group">
