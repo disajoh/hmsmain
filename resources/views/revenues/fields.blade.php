@@ -19,7 +19,7 @@
 <!-- Transaction Date Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('transaction_date', 'Transaction Date:') !!}
-    {!! Form::number('transaction_date', null, ['class' => 'form-control']) !!}
+    {!! Form::date('transaction_date', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

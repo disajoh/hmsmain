@@ -35,14 +35,32 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::resource('customers', 'CustomerController');
 
-    Route::resource('roles', 'RoleController');
+    //only admin
 
-    Route::resource('revenues', 'RevenueController');
+    Route::resource('roles', 'RoleController')->middleware('checkadmin');
 
-    Route::resource('expenseTypes', 'Expense_typeController');
+    //admin, accountant 
+    Route::group(['middleware'=>'checkaccountant'], function(){
 
 
-    Route::resource('otherRevenueSources', 'Other_revenue_sourceController');
+        Route::resource('expenseTypes', 'Expense_typeController');
+
+        Route::resource('revenues', 'RevenueController');
+
+        Route::resource('otherRevenueSources', 'Other_revenue_sourceController');
+
+        Route::resource('expenditures', 'ExpenditureController');
+
+    });
+
+
+    //admin, manager, accountant 
+    Route::group(['middleware'=>'checkmanager'], function(){
+
+        Route::resource('expenditures', 'ExpenditureController');
+    });
+
+
     Route::get('so/new', 'BookingController@new')->name('new');
 
 });

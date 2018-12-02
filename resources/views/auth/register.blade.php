@@ -31,6 +31,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Scripts -->
+       <script src="{{ asset('js/app.js') }}" defer></script>
       <!-- Bootstrap 3.3.7 -->
       <!-- Styles -->
       <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">

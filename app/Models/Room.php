@@ -56,7 +56,7 @@ class Room extends Model
 
     public  function roomcategory(){
          
-         return $this->belongsTo(Room_category::class,'category_id');
+         return $this->belongsTo(Room_category::class,'category_id'); 
     }
 
     public function bookings(){

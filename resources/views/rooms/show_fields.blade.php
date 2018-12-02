@@ -20,6 +20,13 @@
 <div class="form-group">
     {!! Form::label('available', 'Available:') !!}
     <p>{!! $room->available !!}</p>
+    @if($room->available == 1){
+
+    }
+    @else{
+        
+    }
+    @endif
 </div>
 
 <!-- Created At Field -->
