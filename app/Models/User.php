@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Expenditure;
 use App\Models\Role;
 use App\Models\Booking;
+use App\Models\Revenue;
 /**
  * Class User
  * @package App\Models
@@ -94,6 +95,11 @@ class User extends Model
 
     public  function expenditure(){
         
-        return $this->hasMany('App\Model\Expenditure');
+        return $this->hasMany('App\Models\Expenditure');
+    }
+
+    public  function revenue(){
+        
+        return $this->hasMany(Revenue::class);
     }
 }

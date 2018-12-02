@@ -5,6 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Other_revenue_source;
+use App\Models\User;
 /**
  * Class Revenue
  * @package App\Models
@@ -59,6 +60,11 @@ class Revenue extends Model
 
     public  function other_revenue_source(){
         
-       return $this->belongsTo('App\Model\Other_revenue_source');
+       return $this->belongsTo('App\Models\Other_revenue_source');
+    }
+
+    public  function user(){
+        
+       return $this->belongsTo(User::class);
     }
 }

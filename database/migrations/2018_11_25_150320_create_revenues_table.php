@@ -18,7 +18,7 @@ class CreateRevenuesTable extends Migration
             $table->integer('other_revenue_source_id');
             $table->integer('user_id');
             $table->double('amount');
-            $table->integer('transaction_date');
+            $table->date('transaction_date');
             $table->softDeletes();
             $table->timestamps();
         });

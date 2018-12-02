@@ -1,7 +1,7 @@
 <table class="table table-responsive" id="revenues-table">
     <thead>
         <tr>
-            <th>Other Revenue Source Id</th>
+            <th>Revenue Source</th>
         <th>User Id</th>
         <th>Amount</th>
         <th>Transaction Date</th>
@@ -10,11 +10,11 @@
     </thead>
     <tbody>
     @foreach($revenues as $revenue)
-        <tr>
-            <td>{!! $revenue->other_revenue_source_id !!}</td>
-            <td>{!! $revenue->user_id !!}</td>
-            <td>{!! $revenue->amount !!}</td>
-            <td>{!! $revenue->transaction_date !!}</td>
+        <tr>                    
+            <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->other_revenue_source['name'] !!}</a></td>
+            <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->user['name'] !!}</a></td>
+            <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->amount !!}</a></td>
+            <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->transaction_date !!}</a></td>
             <td>
                 {!! Form::open(['route' => ['revenues.destroy', $revenue->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

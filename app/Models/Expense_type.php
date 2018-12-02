@@ -53,6 +53,6 @@ class Expense_type extends Model
 
     public  function expenditure(){
         
-       return $this->hasMany('App\Model\Expenditure');
+       return $this->hasMany('App\Models\Expenditure');
     }
 }

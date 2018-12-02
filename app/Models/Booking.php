@@ -6,6 +6,7 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Customer;
 use App\Models\User;
+use App\Models\Booking;
 /**
  * Class Booking
  * @package App\Models
@@ -97,5 +98,10 @@ class Booking extends Model
     public  function user(){
         
         return $this->belongsTo(User::class);
+    }
+
+    public  function payment(){
+        
+        return $this->hasMany(Payment::class);
     }
 }

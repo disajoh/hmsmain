@@ -54,7 +54,7 @@ class Other_revenue_source extends Model
 
     public  function revenue(){
         
-       return $this->hasMany('App\Model\Revenue');
+       return $this->hasMany('App\Models\Revenue');
     }
     
 }

@@ -1,42 +1,37 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $revenue->id !!}</p>
-</div>
 
 <!-- Other Revenue Source Id Field -->
 <div class="form-group">
     {!! Form::label('other_revenue_source_id', 'Other Revenue Source Id:') !!}
-    <p>{!! $revenue->other_revenue_source_id !!}</p>
+    {!! $revenue->other_revenue_source['name'] !!}
 </div>
 
 <!-- User Id Field -->
 <div class="form-group">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{!! $revenue->user_id !!}</p>
+    {!! Form::label('user_id', 'Staff:') !!}
+    {!! $revenue->user['name'] !!}
 </div>
 
 <!-- Amount Field -->
 <div class="form-group">
     {!! Form::label('amount', 'Amount:') !!}
-    <p>{!! $revenue->amount !!}</p>
+    {!! $revenue->amount !!}
 </div>
 
 <!-- Transaction Date Field -->
 <div class="form-group">
     {!! Form::label('transaction_date', 'Transaction Date:') !!}
-    <p>{!! $revenue->transaction_date !!}</p>
+    {!! $revenue->transaction_date !!}
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $revenue->created_at !!}</p>
+    {!! $revenue->created_at->format('D d, M, Y')  !!}
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
     {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $revenue->updated_at !!}</p>
+    {!! $revenue->updated_at->format('D d, M, Y') !!}
 </div>
 

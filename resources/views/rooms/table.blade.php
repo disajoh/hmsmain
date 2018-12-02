@@ -3,7 +3,7 @@
         <tr>
             <th>Room Number</th>
         <th>Room Category</th>
-        <th>Available</th>
+        <th>Room Status</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
