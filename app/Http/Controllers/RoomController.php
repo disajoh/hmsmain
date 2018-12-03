@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use App\Models\Room_category;
 class RoomController extends AppBaseController
 {
     /** @var  RoomRepository */
@@ -42,8 +42,9 @@ class RoomController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-        return view('rooms.create');
+    {    
+        $roomCategories = Room_category::all();
+        return view('rooms.create', compact('roomCategories'));
     }
 
     /**

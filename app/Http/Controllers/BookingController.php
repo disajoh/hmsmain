@@ -67,7 +67,8 @@ class BookingController extends AppBaseController
     public function new()
     {   
         $rooms = Room::all();
-        return view('bookings.new', compact('rooms'));
+        $customers = Customer::all();
+        return view('bookings.new', compact('rooms', 'customers'));
     }
     
     /**
@@ -148,7 +149,10 @@ class BookingController extends AppBaseController
             return redirect(route('bookings.index'));
         }
 
-        return view('bookings.edit')->with('booking', $booking);
+        $customers = Customer::all();
+        return view('bookings.edit')
+            ->with('booking', $booking)
+            ->with('customer', $customers);
     }
 
     /**

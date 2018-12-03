@@ -11,10 +11,10 @@
     <tbody>
     @foreach($payments as $payment)
         <tr>
-            <td>{!! $payment->booking_id !!}</td>
-            <td>{!! $payment->amount_paid !!}</td>
-            <td>{!! $payment->discount !!}</td>
-            <td>{!! $payment->date_received !!}</td>
+            <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->booking_id !!}</a></td>
+            <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->amount_paid !!}</a></td>
+            <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->discount !!}</a></td>
+            <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->date_received->format('D d, M, Y') !!}</a></td>
             <td>
                 {!! Form::open(['route' => ['payments.destroy', $payment->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

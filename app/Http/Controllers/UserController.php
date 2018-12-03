@@ -82,8 +82,10 @@ class UserController extends AppBaseController
 
             return redirect(route('users.index'));
         }
-
-        return view('users.show')->with('user', $user);
+        $validOperation = false;
+        return view('users.show')
+            ->with('user', $user)
+            ->with('validOperation', $validOperation);
     }
 
     /**
@@ -96,7 +98,7 @@ class UserController extends AppBaseController
     public function edit($id)
     {
         $user = $this->userRepository->findWithoutFail($id);
-
+        $validOperation = true;
         if (empty($user)) {
             Flash::error('User not found');
 
@@ -107,7 +109,8 @@ class UserController extends AppBaseController
 
         return view('users.edit')
             ->with('roles', $roles)
-            ->with('user', $user);
+            ->with('user', $user)
+            ->with('validOperation',$validOperation);
 
     }
 
