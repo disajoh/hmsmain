@@ -4,7 +4,7 @@
     {!! Form::number('role_id', null, ['class' => 'form-control']) !!}
 </div> -->
 
-@if(Auth::user()->role_id < 2)
+@if($validOperation && Auth::user()->role_id < 2)
     <div class="form-group col-sm-6">
       <label for="sel1">Staff Role:</label>
       <select class="form-control" id="sel1">
@@ -60,6 +60,13 @@
     {!! Form::label('password', 'Password:') !!}
     {!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
+
+<!-- Password Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('password_confirmation', 'Confirm Password:') !!}
+    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+</div>
+
 
 
 <!-- Submit Field -->
