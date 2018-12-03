@@ -43,7 +43,9 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        return view('users.create');
+        $validOperation =  ($_SERVER['REQUEST_METHOD'] === 'POST');
+          
+        return view('users.create', compact('validOperation'));
     }
 
     /**
