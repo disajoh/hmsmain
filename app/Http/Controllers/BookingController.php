@@ -108,7 +108,7 @@ class BookingController extends AppBaseController
 
         Flash::success('Booking saved successfully.');
 
-        return redirect(route('bookings.show', compact('booking')));
+        return redirect(route('pay', compact('booking')));
     }
 
     /**
