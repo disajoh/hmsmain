@@ -67,7 +67,36 @@
     {!! $booking->reserved_by !!}
 </div>
 <hr>
+<!-- Cost Field -->
+<?php
+$diff= date_diff($booking->departure_date, $booking->arrival_date);
+$days=intval($diff->format("%d"));
+?>
+<div class="form-group">
+    {!! Form::label('cost', 'Cost:      ') !!}         
+    {!!$booking->room->roomcategory['price']*$days !!}
+</div>
+<hr>
 
+<?php
+$payment=0;
+$discount=0;
+foreach ($booking->payment as $pay) {
+    $payment = $payment + $pay['amount_paid'];
+    $discount= $discount + $pay['discount'];
+}
+?>
+<div class="form-group">
+    {!! Form::label('amount_paid', 'Amount Paid:      ') !!}         
+    {!!$payment !!}
+</div>
+<hr>
+
+<div class="form-group">
+    {!! Form::label('discount', 'Discount:      ') !!}         
+    {!!$discount !!}
+</div>
+<hr>
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Booked:') !!}
