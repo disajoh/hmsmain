@@ -26,8 +26,6 @@ class CreateBookingsTable extends Migration
             $table->string('where_from')->nullable();
             $table->string('vehicle_number')->nullable();
             $table->string('reserved_by')->nullable();
-            $table->double('amount_paid');
-            $table->double('discount')->default(0);
             $table->boolean('active')->default(true)->nullable();
             $table->softDeletes();
             $table->timestamps();

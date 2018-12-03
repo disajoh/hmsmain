@@ -73,8 +73,6 @@ class Booking extends Model
         'where_from' => 'string',
         'vehicle_number' => 'string',
         'reserved_by' => 'string',
-        'amount_paid' => 'float',
-        'discount' => 'float'
     ];
 
     /**

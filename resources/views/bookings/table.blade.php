@@ -12,7 +12,6 @@
         <th>Where From</th>
         <th>Vehicle Number</th> -->
         <th>Reserved By</th>
-        <th>Amount Paid</th>
         <th>Status</th>
         <!-- <th>Discount</th> -->
             <th colspan="3">Action</th>
@@ -28,7 +27,6 @@
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->arrival_date->format('D d, M, Y') !!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->departure_date->format('D d, M, Y') !!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->reserved_by !!}</a></td>
-            <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->amount_paid !!}</a></td>
             
             <td> <a href="{!! route('bookings.show', [$booking->id]) !!}">
                 @if($booking->active == 1)

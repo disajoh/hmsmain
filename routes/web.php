@@ -37,6 +37,8 @@ Route::group(['middleware'=>'auth'], function(){
     
     Route::resource('payments', 'PaymentController');
 
+    Route::resource('payments', 'PaymentController');
+
     //only admin
 
     Route::resource('roles', 'RoleController')->middleware('checkadmin');
