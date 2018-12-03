@@ -34,6 +34,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('rooms', 'RoomController');
 
     Route::resource('customers', 'CustomerController');
+    
+    Route::resource('payments', 'PaymentController');
 
     //only admin
 
@@ -67,4 +69,3 @@ Route::group(['middleware'=>'auth'], function(){
 
 
 
-Route::resource('payments', 'PaymentController');
