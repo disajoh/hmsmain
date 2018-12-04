@@ -1,8 +1,7 @@
 <table class="table table-responsive" id="payments-table">
     <thead>
         <tr>
-        <th>Reciept No.</th>
-        <th>Cost</th>
+            <th>Booking Id</th>
         <th>Amount Paid</th>
         <th>Discount</th>
         <th>Date Received</th>
@@ -12,18 +11,10 @@
     <tbody>
     @foreach($payments as $payment)
         <tr>
-
-            <?php
-                $diff= date_diff($payment->booking['departure_date'], $payment->booking['arrival_date']);
-                $days=intval($diff->format("%d"));
-                $price= $payment->booking->room->roomcategory['price']*$days;
-            ?>
-            <td>{!! $payment->id !!}</td>
-            <td>{!! $price !!}</td>
-            <td>{!! $payment->amount_paid !!}</td>
-            <td>{!! $payment->discount !!}</td>
-            <td>{!! $payment->date_received->format('D d, M, Y') !!}</td>
-
+            <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->booking_id !!}</a></td>
+            <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->amount_paid !!}</a></td>
+            <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->discount !!}</a></td>
+            <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->date_received->format('D d, M, Y') !!}</a></td>
             <td>
                 {!! Form::open(['route' => ['payments.destroy', $payment->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

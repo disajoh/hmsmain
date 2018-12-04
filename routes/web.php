@@ -67,6 +67,8 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::get('so/new', 'BookingController@new')->name('new');
 
+    Route::get('so/pay/{id}', 'PaymentController@new')->name('pay');
+
 });
 
 

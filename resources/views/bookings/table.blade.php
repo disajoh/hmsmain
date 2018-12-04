@@ -11,14 +11,28 @@
         <th>Transport Means</th>
         <th>Where From</th>
         <th>Vehicle Number</th> -->
-        <th>Reserved By</th>
+        <th>Cost</th>
+        <th>Amount Paid</th>
+        <th>Discount</th>
         <th>Status</th>
         <!-- <th>Discount</th> -->
             <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
+        
     @foreach($bookings as $booking)
+        <?php
+            $diff= date_diff($booking->departure_date, $booking->arrival_date);
+            $days=intval($diff->format("%d"));
+
+            $payment=0;
+            $discount=0;
+            foreach ($booking->payment as $pay) {
+                $payment = $payment + $pay['amount_paid'];
+                $discount= $discount + $pay['discount'];
+            }
+        ?>
         <tr>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->user['first_name'] !!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->room['room_number'] !!}</a></td>
@@ -26,7 +40,10 @@
                 {!! $booking->customer['first_name'] .' '.$booking->customer['surname']!!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->arrival_date->format('D d, M, Y') !!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->departure_date->format('D d, M, Y') !!}</a></td>
-            <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->reserved_by !!}</a></td>
+            <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->room->roomcategory['price']*$days !!}</a></td>
+
+            <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!!$payment !!}</a></td>
+            <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!!$discount !!}</a></td>
             
             <td> <a href="{!! route('bookings.show', [$booking->id]) !!}">
                 @if($booking->active == 1)

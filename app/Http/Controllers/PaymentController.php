@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Booking;
 
 class PaymentController extends AppBaseController
 {
@@ -44,6 +45,11 @@ class PaymentController extends AppBaseController
     public function create()
     {
         return view('payments.create');
+    }
+    public function new($id)
+    {
+        $booking= Booking::find($id);
+        return view('payments.create')->with('booking', $booking);
     }
 
     /**

@@ -12,7 +12,6 @@
     <tbody>
     @foreach($payments as $payment)
         <tr>
-
             <?php
                 $diff= date_diff($payment->booking['departure_date'], $payment->booking['arrival_date']);
                 $days=intval($diff->format("%d"));
@@ -23,7 +22,6 @@
             <td>{!! $payment->amount_paid !!}</td>
             <td>{!! $payment->discount !!}</td>
             <td>{!! $payment->date_received->format('D d, M, Y') !!}</td>
-
             <td>
                 {!! Form::open(['route' => ['payments.destroy', $payment->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
