@@ -86,11 +86,11 @@ class BookingController extends AppBaseController
 
         //check dates
 
-        if(($input2['arrival_date'] > $input2['departure_date'])){
-            Flash::error('Please check your input, a customer should not leave before arriving!');
+        // if(($input2['arrival_date'] > $input2['departure_date'])){
+        //     Flash::error('Please check your input, a customer should not leave before arriving!');
 
-            return back()->withInput();
-        }
+        //     return back()->withInput();
+        // }
         //add new customer first
         if (isset($input1['first_name'])) {
             $customer = $this->customerRepository->create($input1);

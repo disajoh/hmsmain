@@ -81,7 +81,10 @@ class Booking extends Model
      * @var array
      */
     public static $rules = [
-        
+        'user_id' => 'exists:users,id',
+        'room_id'=>'exists:rooms,id',
+        'customer_id'=>'exists:customers,id',
+        'departure_date' => 'after:arrival_date'
     ];
 
     public  function customer(){
