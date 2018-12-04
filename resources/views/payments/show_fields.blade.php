@@ -34,10 +34,10 @@
                 $price= $payment->booking->room->roomcategory['price']*$days;
             ?>
 <!-- Customer Field -->
-<div class="form-group">
+<!-- <div class="form-group">
     {!! Form::label('cost', 'Cost:') !!}
     {!! $price !!}
-</div>
+</div> -->
 <!-- Cost Field -->
 <div class="form-group">
     {!! Form::label('cost', 'Cost:') !!}
