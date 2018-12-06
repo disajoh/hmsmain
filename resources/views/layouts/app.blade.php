@@ -50,6 +50,7 @@
       <!-- iCheck -->
       <link href="{{ asset('css/skins/_all.css') }}" rel="stylesheet">
       <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/_all.css"> -->
+      <script type="text/javascript" src="js/jquery.printPage.js"></script>
 
     @yield('css')
 </head>
