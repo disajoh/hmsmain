@@ -66,6 +66,7 @@ Route::group(['middleware'=>'auth'], function(){
 
 
     Route::get('so/new', 'BookingController@new')->name('new');
+    Route::post('so/saveExisting', 'BookingController@saveExisting')->name('saveExisting');
 
     Route::get('so/pay/{id}', 'PaymentController@new')->name('pay');
     Route::get('so/print/{id}', 'PaymentController@printPreview')->name('print');

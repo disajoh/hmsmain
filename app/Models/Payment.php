@@ -54,7 +54,8 @@ class Payment extends Model
      * @var array
      */
     public static $rules = [
-        
+        'amount_paid' => ['numeric', 'min:0'],
+        'discount' => ['nullable', 'numeric', 'min:0']
     ];
 
     public  function booking(){

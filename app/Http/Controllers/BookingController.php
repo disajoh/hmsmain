@@ -74,6 +74,41 @@ class BookingController extends AppBaseController
         $customers = Customer::all();
         return view('bookings.new', compact('rooms', 'customers'));
     }
+
+    /**
+     * Store a existing Booking in storage.
+     *
+     * @param CreateBookingRequest $request
+     *
+     * @return Response
+     */
+
+    public  function saveExisting(Request $request){
+            
+            $input = $request->all();
+            
+        // if(! isset($input['id'])){
+
+        //     Flash::error('Please select a Customer.');
+        // }
+        
+        // $input['customer_id'] = 'id';
+        $input['user_id'] = Auth::user()->id;
+
+        //add booking for the new customer
+        $booking = $this->bookingRepository->create($input);
+
+        $room = $booking->room;
+        
+        Room::where('id', $room['id'])
+          ->update(['available' => false]);
+
+
+        Flash::success('Booking saved successfully.');
+
+        return redirect(route('pay', compact('booking')));
+    }
+
     
     /**
      * Store a newly created Booking in storage.
