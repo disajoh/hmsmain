@@ -11,6 +11,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Booking;
+use App\Models\Payment;
 
 class PaymentController extends AppBaseController
 {
@@ -50,6 +51,12 @@ class PaymentController extends AppBaseController
     {
         $booking= Booking::find($id);
         return view('payments.create')->with('booking', $booking);
+    }
+
+    public function printPreview($id)
+    {
+        $payment= Payment::find($id);
+        return view('payments.print_reciept')->with('payment', $payment);
     }
 
     /**

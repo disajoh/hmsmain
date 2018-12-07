@@ -11,7 +11,17 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('payments.show_fields')
-                    <a href="{!! route('payments.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('print', [$payment->id]) !!}" class="btn">Print Preview</a>
+                    
+                    <script type="text/javascript">
+
+                         $(document).ready(function(){
+
+                                  $('.btn').printPage();
+
+                         });
+
+                    </script>
                 </div>
             </div>
         </div>
