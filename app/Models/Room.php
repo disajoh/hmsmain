@@ -51,7 +51,8 @@ class Room extends Model
      * @var array
      */
     public static $rules = [
-        
+
+        'room_number' => 'required',
     ];
 
     public  function roomcategory(){

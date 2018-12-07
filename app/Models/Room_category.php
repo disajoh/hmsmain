@@ -51,7 +51,8 @@ class Room_category extends Model
      * @var array
      */
     public static $rules = [
-        
+        'name' => 'required',
+        'price' => ['required', 'numeric', 'min:0'],
     ];
 
     public  function room(){

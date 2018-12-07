@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Bagale Hotel</title>
+    <title>Bagale Motel</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <!-- Bootstrap 3.3.7 -->
@@ -125,7 +125,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2018 <a href="#">Bagale Hotel</a>.</strong> All rights reserved.
+            <strong>Copyright © 2018 <a href="#">Bagale Motel</a>.</strong> All rights reserved.
         </footer>
 
     </div>

@@ -73,13 +73,13 @@ class User extends Model
      * @var array
      */
     public static $rules = [
-        'role_id'=> ['nullable', 'numeric', 'min:1'],
-        'first_name' => ['required', 'string', 'max:255'],
-        'surname' => ['required', 'string', 'max:255'],
-        'other_name' => ['nullable','string', 'max:255'],
-        'phone' => ['required','string', 'max:255',  'unique:users'],
+        'role_id'=> ['nullable', 'numeric', 'min:1', ''],
+        'first_name' => ['required', 'regex:/^[A-Za-z]+$/', 'max:50', 'alpha_dash'],
+        'surname' => ['required', 'string', 'max:50', 'regex:/^[A-Za-z]+$/','alpha_dash'],
+        'other_name' => ['nullable', 'regex:/^[A-Za-z-]+$/', 'max:50', 'alpha_dash'],
+        'phone' => ['required', 'digits_between:11,14',  'unique:users'],
         'address' => ['required','string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
         'password' => ['required', 'string', 'min:6', 'confirmed'],
     ];
 
