@@ -64,7 +64,11 @@ class Expenditure extends Model
      * @var array
      */
     public static $rules = [
-        
+        'user_id' => ['exists:users,id',],
+        'expence_type_id' => ['exists:expense_types,id',],
+        'description' => ['nullable', 'alpha_num',],
+        'amount' => ['required', 'min:1', 'numeric',],
+        'cheque_number' =>['required_if:payment_method,cheque', 'numeric',],
     ];
 
     public  function expense_type(){

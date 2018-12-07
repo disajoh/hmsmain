@@ -77,9 +77,10 @@ class Customer extends Model
         'surname' => ['required', 'string', 'max:50', 'regex:/^[A-Za-z]+$/','alpha_dash'],
         'other_name' => ['nullable', 'regex:/^[A-Za-z-]+$/', 'max:50', 'alpha_dash'],
         'phone' => ['required', 'digits_between:11,14',  'unique:users'],
-        'address' => ['required','string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
-        'password' => ['required', 'string', 'min:6', 'confirmed'],
+        'email' => ['nullable','string', 'email', 'max:50', 'unique:users'],
+        'nationality' => ['required',],
+        'occupation' => ['required',],
+        'address' => ['required', 'alpha_num',],
     ];
 
     public  function booking(){

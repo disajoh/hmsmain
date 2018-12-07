@@ -17,6 +17,7 @@ use CustomerController;
 use App\Models\Room;
 use App\Models\Booking;
 use App\Models\Customer;
+use Illuminate\Support\Facades\Validator;
 
 class BookingController extends AppBaseController
 {
@@ -80,17 +81,12 @@ class BookingController extends AppBaseController
      */
     public function store(CreateCustomerRequest $request1, CreateBookingRequest $request2)
     {
+        
+
         $input1 = $request1->all();
         $input2 = $request2->all();
         
 
-        //check dates
-
-        // if(($input2['arrival_date'] > $input2['departure_date'])){
-        //     Flash::error('Please check your input, a customer should not leave before arriving!');
-
-        //     return back()->withInput();
-        // }
         //add new customer first
         if (isset($input1['first_name'])) {
             $customer = $this->customerRepository->create($input1);

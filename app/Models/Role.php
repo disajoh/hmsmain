@@ -46,6 +46,7 @@ class Role extends Model
      */
     public static $rules = [
         
+        'name' => ['required', 'alpha_num',]
     ];
 
     public  function user(){

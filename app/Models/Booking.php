@@ -84,7 +84,8 @@ class Booking extends Model
         'user_id' => 'exists:users,id',
         'room_id'=>'exists:rooms,id',
         'customer_id'=>'exists:customers,id',
-        'departure_date' => 'after:arrival_date'
+        'departure_date' => ['required','after:arrival_date',],
+        'arrival_date' => ['required',]
     ];
 
     public  function customer(){
