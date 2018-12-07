@@ -32,6 +32,8 @@
                 $payment = $payment + $pay['amount_paid'];
                 $discount= $discount + $pay['discount'];
             }
+            $cost=$booking->room->roomcategory['price']*$days;
+            $balance= $cost - ($payment + $discount);
         ?>
         <tr>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->user['first_name'] !!}</a></td>
@@ -40,7 +42,7 @@
                 {!! $booking->customer['first_name'] .' '.$booking->customer['surname']!!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->arrival_date->format('D d, M, Y') !!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->departure_date->format('D d, M, Y') !!}</a></td>
-            <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->room->roomcategory['price']*$days !!}</a></td>
+            <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $cost !!}</a></td>
 
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!!$payment !!}</a></td>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!!$discount !!}</a></td>
@@ -60,8 +62,11 @@
             <td>
                 {!! Form::open(['route' => ['bookings.destroy', $booking->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
+                    @if($balance > 0)
+                        <a href="{!! route('pay', [$booking->id]) !!}" class='btn btn-default btn-xs'>Pay</a>
+                    @endif
                     <a href="{!! route('bookings.show', [$booking->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    
+
                     <!-- <a href="{!! route('bookings.edit', [$booking->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
  -->
                     @if($booking->active == 1)

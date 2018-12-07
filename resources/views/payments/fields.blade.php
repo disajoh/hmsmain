@@ -31,12 +31,25 @@
 </div>
 <!-- Cost Field -->
 <?php
-$diff= date_diff($booking->departure_date, $booking->arrival_date);
-$days=intval($diff->format("%d"));
+    $diff= date_diff($booking->departure_date, $booking->arrival_date);
+    $days=intval($diff->format("%d"));
+    $cost=$booking->room->roomcategory['price']*$days;
+    $payment=0;
+    $discount=0;
+    foreach ($booking->payment as $pay) {
+        $payment = $payment + $pay['amount_paid'];
+        $discount= $discount + $pay['discount'];
+    }
+    $balance= $cost - ($payment + $discount);
 ?>
+
 <div class="form-group">
     {!! Form::label('cost', 'Cost:      ') !!}         
-    {!!$booking->room->roomcategory['price']*$days !!}
+    {!!$cost !!}
+</div>
+<div class="form-group">
+    {!! Form::label('balance', 'Balance:      ') !!}         
+    {!!$balance !!}
 </div>
 <hr>
 

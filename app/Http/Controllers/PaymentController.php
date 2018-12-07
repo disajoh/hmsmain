@@ -32,7 +32,9 @@ class PaymentController extends AppBaseController
     public function index(Request $request)
     {
         $this->paymentRepository->pushCriteria(new RequestCriteria($request));
-        $payments = $this->paymentRepository->all();
+        $payments = $this->paymentRepository
+        ->orderBy('updated_at', 'DESC')
+        ->all();
 
         return view('payments.index')
             ->with('payments', $payments);

@@ -40,7 +40,10 @@ class BookingController extends AppBaseController
     public function index(Request $request)
     {
         $this->bookingRepository->pushCriteria(new RequestCriteria($request));
-        $bookings = $this->bookingRepository->all();
+        $bookings = $this->bookingRepository
+        ->orderBy('active','DESC')
+        ->orderBy('updated_at', 'DESC')
+        ->all();
 
         return view('bookings.index')
             ->with('bookings', $bookings);
