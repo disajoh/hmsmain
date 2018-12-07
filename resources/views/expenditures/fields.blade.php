@@ -1,13 +1,15 @@
-<!-- User Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('user_id', 'User Id:') !!}
-    {!! Form::number('user_id', null, ['class' => 'form-control']) !!}
-</div>
 
-<!-- Expence Type Id Field -->
+
+<!-- Room Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('expence_type_id', 'Expence Type Id:') !!}
-    {!! Form::number('expence_type_id', null, ['class' => 'form-control']) !!}
+    <label for="sel1">Expense Type:</label>
+    <select class="form-control" id="sel1" name="expence_type_id">
+        @foreach($expenseTypes as $expenseType)
+            
+            <option value="{{ $expenseType['id'] }}">{{ $expenseType['name'] }}</option>
+            
+        @endforeach
+    </select>
 </div>
 
 <!-- Description Field -->

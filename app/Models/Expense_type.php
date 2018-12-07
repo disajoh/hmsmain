@@ -48,8 +48,8 @@ class Expense_type extends Model
      * @var array
      */
     public static $rules = [
-        'name' => ['name', 'alpha_num',]
-        'description' => ['nullable', 'alpha_num',]
+        'name' => ['name', 'alpha_num',],
+        'description' => ['nullable', 'alpha_num',],
     ];
 
     public  function expenditure(){

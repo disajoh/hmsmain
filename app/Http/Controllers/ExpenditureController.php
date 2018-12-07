@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Expense_type;
 
 class ExpenditureController extends AppBaseController
 {
@@ -43,7 +44,8 @@ class ExpenditureController extends AppBaseController
      */
     public function create()
     {
-        return view('expenditures.create');
+        $expenseTypes = Expense_type::all();
+        return view('expenditures.create', compact('expenseTypes'));
     }
 
     /**
@@ -56,6 +58,7 @@ class ExpenditureController extends AppBaseController
     public function store(CreateExpenditureRequest $request)
     {
         $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
 
         $expenditure = $this->expenditureRepository->create($input);
 
