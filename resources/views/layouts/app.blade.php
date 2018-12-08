@@ -76,6 +76,7 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- User Account Menu -->
+
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -111,6 +112,12 @@
                                     </div>
                                 </li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href="{!! url('/logout') !!}" class="btn btn-link btn-flat"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Sign out
+                                        </a>
                         </li>
                     </ul>
                 </div>
