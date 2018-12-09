@@ -58,7 +58,8 @@ class UserController extends AppBaseController
     public function store(CreateUserRequest $request)
     {
         $input = $request->all();
-
+        $input['password'] = Hash::make($input['password']);
+        
         $user = $this->userRepository->create($input);
 
         Flash::success('User saved successfully.');
