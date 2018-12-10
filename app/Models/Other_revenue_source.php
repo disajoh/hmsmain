@@ -49,7 +49,7 @@ class Other_revenue_source extends Model
      * @var array
      */
     public static $rules = [
-        'name' => ['required', 'alpha_num',]
+        'name' => ['required', 'alpha_num',],
         'description' =>['nullable', 'alpha_num',]
     ];
 
