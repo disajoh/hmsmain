@@ -57,8 +57,8 @@ class BookingController extends AppBaseController
      */
     public function create()
     {
-        $customers = Customer::all();
-        $rooms = Room::all();
+        $customers = Customer::orderBy('first_name')->get();
+        $rooms = Room::orderBy('room_number')->get();
         return view('bookings.create',compact('rooms','customers'));
     }
 
@@ -70,8 +70,8 @@ class BookingController extends AppBaseController
      */
     public function new()
     {   
-        $rooms = Room::all();
-        $customers = Customer::all();
+        $rooms = Room::orderBy('room_number')->get();
+        $customers = Customer::orderBy('first_name')->get();
         return view('bookings.new', compact('rooms', 'customers'));
     }
 
