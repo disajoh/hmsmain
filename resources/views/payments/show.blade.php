@@ -21,6 +21,8 @@
 
                          });
 
+                         <INPUT TYPE="button" onClick="window.print()">
+
                     </script>
                 </div>
             </div>
