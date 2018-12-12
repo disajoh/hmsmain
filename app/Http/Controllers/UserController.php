@@ -126,6 +126,12 @@ class UserController extends AppBaseController
      */
     public function update($id, UpdateUserRequest $request)
     {
+
+        $input = $request->all();
+        // if ('' === $input['password']) {
+        //     unset($input['password']);
+
+        // }
         $user = $this->userRepository->findWithoutFail($id);
 
         if (empty($user)) {
@@ -134,14 +140,17 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
 
-        $input = $request->all();
+
+        
 
         if(!empty($input['password'])){
 
             $input ['password'] = Hash::make($input['password']);
+        }else{
+            $input['password'] = $user->password;
         }
         
-        $user = $this->userRepository->update($input->all(), $id);
+        $user = $this->userRepository->update($input, $id);
 
         Flash::success('User updated successfully.');
 

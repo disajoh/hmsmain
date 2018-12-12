@@ -72,15 +72,16 @@ class User extends Model
      *
      * @var array
      */
+ 
     public static $rules = [
-        'role_id'=> ['nullable', 'numeric', 'min:1', ''],
-        'first_name' => ['required', 'regex:/^[A-Za-z]+$/', 'max:50', 'alpha_dash'],
-        'surname' => ['required', 'string', 'max:50', 'regex:/^[A-Za-z]+$/','alpha_dash'],
-        'other_name' => ['nullable', 'regex:/^[A-Za-z-]+$/', 'max:50', 'alpha_dash'],
-        'phone' => ['required', 'digits_between:11,14',  'unique:users'],
-        'address' => ['required','string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
-        'password' => ['required', 'string', 'min:6', 'confirmed'],
+        'role_id'=> 'nullable|numeric|min:1',
+        'first_name' => 'required|regex:/^[A-Za-z ,.\'-]+$/|max:50',
+        'surname' => 'required|max:50|regex:/^[A-Za-z ,.\'-]+$/|alpha_dash',
+        'other_name' => 'nullable|regex:/^[A-Za-z ,.\'-]+$/|max:50|alpha_dash',
+        'phone' => 'required|digits_between:11,14|unique:users',
+        'address' => 'required|string|max:255',
+        'email' => 'required|string|email|max:50|unique:users',
+        'password' => 'sometimes|nullable|string|min:6|confirmed',
     ];
 
     public  function role(){
