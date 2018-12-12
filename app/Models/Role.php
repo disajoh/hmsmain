@@ -46,7 +46,7 @@ class Role extends Model
      */
     public static $rules = [
         
-        'name' => ['required', 'alpha_num',]
+        'name' => ['required', 'regex:/^[A-Za-z0-9 ,.\'-]+$/',]
     ];
 
     public  function user(){

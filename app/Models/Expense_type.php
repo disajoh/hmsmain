@@ -48,8 +48,8 @@ class Expense_type extends Model
      * @var array
      */
     public static $rules = [
-        'name' => ['name', 'alpha_num',],
-        'description' => ['nullable', 'alpha_num',],
+        'name' => ['required', 'regex:/^[A-Za-z0-9 ,.\'-]+$/',],
+        'description' => ['required', 'regex:/^[A-Za-z0-9 ,.\'-]+$/',],
     ];
 
     public  function expenditure(){

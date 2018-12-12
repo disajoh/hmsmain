@@ -51,7 +51,7 @@ class Room_category extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
+        'name' => ['required', 'regex:/^[A-Za-z0-9 ,.\'-]+$/',],
         'price' => ['required', 'numeric', 'min:0'],
     ];
 

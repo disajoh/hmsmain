@@ -66,7 +66,7 @@ class Expenditure extends Model
     public static $rules = [
         'user_id' => ['exists:users,id',],
         'expence_type_id' => ['exists:expense_types,id',],
-        'description' => ['nullable', 'alpha_num',],
+        'description' => ['nullable', 'regex:/^[A-Za-z0-9 ,.\'-]+$/',],
         'amount' => ['required', 'min:1', 'numeric',],
         'cheque_number' =>['required_if:payment_method,cheque', 'numeric',],
     ];

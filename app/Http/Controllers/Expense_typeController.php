@@ -56,7 +56,7 @@ class Expense_typeController extends AppBaseController
     public function store(CreateExpense_typeRequest $request)
     {
         $input = $request->all();
-
+    
         $expenseType = $this->expenseTypeRepository->create($input);
 
         Flash::success('Expense Type saved successfully.');

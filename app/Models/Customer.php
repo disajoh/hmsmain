@@ -74,13 +74,13 @@ class Customer extends Model
     public static $rules = [
         
         'first_name' => ['required', 'regex:/^[A-Za-z]+$/', 'max:50', 'alpha_dash'],
-        'surname' => ['required', 'string', 'max:50', 'regex:/^[A-Za-z]+$/','alpha_dash'],
-        'other_name' => ['nullable', 'regex:/^[A-Za-z-]+$/', 'max:50', 'alpha_dash'],
+        'surname' => ['required', 'string', 'max:50', 'regex:/^[A-Za-z ,.\'-]+$/',],
+        'other_name' => ['nullable', 'regex:/^[A-Za-z ,.\'-]+$/', 'max:50',],
         'phone' => ['required', 'digits_between:11,14',  'unique:users'],
         'email' => ['nullable','string', 'email', 'max:50', 'unique:customers'],
         'nationality' => ['required',],
         'occupation' => ['required',],
-        'address' => ['required', 'alpha_num',],
+        'address' => ['required', 'regex:/^[A-Za-z0-9 ,.\'-]+$/',],
     ];
 
     public  function booking(){

@@ -52,7 +52,8 @@ class Room extends Model
      */
     public static $rules = [
 
-        'room_number' => 'required',
+        'room_number' => ['required', 'regex:/^[A-Za-z0-9 ,.\'-]+$/',],
+        
     ];
 
     public  function roomcategory(){
