@@ -57,3 +57,7 @@
     <a href="{!! route('payments.index') !!}"><i class="fa fa-edit"></i><span>Payments</span></a>
 </li>
 
+<li class="{{ Request::is('bookingRefunds*') ? 'active' : '' }}">
+    <a href="{!! route('bookingRefunds.index') !!}"><i class="fa fa-edit"></i><span>Booking Refunds</span></a>
+</li>
+

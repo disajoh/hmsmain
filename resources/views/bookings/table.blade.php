@@ -28,12 +28,17 @@
 
             $payment=0;
             $discount=0;
+            $refund=0;
             foreach ($booking->payment as $pay) {
                 $payment = $payment + $pay['amount_paid'];
                 $discount= $discount + $pay['discount'];
             }
+            foreach ($booking->booking_refund as $ref){
+                $refund = $refund + $ref{'amount_refunded'};
+            }
             $cost=$booking->room->roomcategory['price']*$days;
-            $balance= $cost - ($payment + $discount);
+            $balance= $cost - ($payment + $discount) + $refund;
+            $payment = $payment - $refund;
         ?>
         <tr>
             <td><a href="{!! route('bookings.show', [$booking->id]) !!}">{!! $booking->user['first_name'] !!}</a></td>
@@ -65,10 +70,13 @@
                     @if($balance > 0)
                         <a href="{!! route('pay', [$booking->id]) !!}" class='btn btn-default btn-xs'>Pay</a>
                     @endif
+                    @if($balance < 0)
+                        <a href="{!! route('refund', [$booking->id]) !!}" class='btn btn-default btn-xs'>Refund</a>
+                    @endif
                     <a href="{!! route('bookings.show', [$booking->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
 
-                    <!-- <a href="{!! route('bookings.edit', [$booking->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
- -->
+                    <a href="{!! route('bookings.edit', [$booking->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                    
                     @if($booking->active == 1)
                         {!! Form::button('<i class="glyphicon glyphicon-eject"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     @endif

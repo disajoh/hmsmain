@@ -81,14 +81,24 @@ $days=intval($diff->format("%d"));
 <?php
 $payment=0;
 $discount=0;
+$refund=0;
 foreach ($booking->payment as $pay) {
     $payment = $payment + $pay['amount_paid'];
     $discount= $discount + $pay['discount'];
+}
+foreach ($booking->booking_refund as $ref){
+                $refund = $refund + $ref{'amount_refunded'};
 }
 ?>
 <div class="form-group">
     {!! Form::label('amount_paid', 'Amount Paid:      ') !!}         
     {!!$payment !!}
+</div>
+<hr>
+
+<div class="form-group">
+    {!! Form::label('amount_refunded', 'Amount Refunded:      ') !!}         
+    {!!$refund !!}
 </div>
 <hr>
 

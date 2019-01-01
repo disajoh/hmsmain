@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Customer;
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\Booking_refund;
+use App\Models\Payment;
 /**
  * Class Booking
  * @package App\Models
@@ -105,5 +107,8 @@ class Booking extends Model
     public  function payment(){
         
         return $this->hasMany(Payment::class);
+    }
+    public function booking_refund(){
+        return $this->hasMany(Booking_refund::class);
     }
 }

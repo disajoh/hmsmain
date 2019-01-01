@@ -175,6 +175,9 @@ class BookingController extends AppBaseController
      */
     public function edit($id)
     {
+        $customers = Customer::orderBy('first_name')->get();
+        $rooms = Room::orderBy('room_number')->get();
+       
         $booking = $this->bookingRepository->findWithoutFail($id);
 
         if (empty($booking)) {
@@ -183,10 +186,7 @@ class BookingController extends AppBaseController
             return redirect(route('bookings.index'));
         }
 
-        $customers = Customer::all();
-        return view('bookings.edit')
-            ->with('booking', $booking)
-            ->with('customer', $customers);
+        return view('bookings.edit',compact('booking','rooms','customers'));
     }
 
     /**

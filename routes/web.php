@@ -38,6 +38,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('payments', 'PaymentController');
 
     Route::resource('payments', 'PaymentController');
+    Route::resource('bookingRefunds', 'Booking_refundController');
 
     //only admin
 
@@ -65,13 +66,14 @@ Route::group(['middleware'=>'auth'], function(){
     });
 
 
-    Route::get('so/new', 'BookingController@new')->name('new');
-    Route::post('so/saveExisting', 'BookingController@saveExisting')->name('saveExisting');
+    Route::get('book/new', 'BookingController@new')->name('new');
 
-    Route::get('so/pay/{id}', 'PaymentController@new')->name('pay');
-    Route::get('so/print/{id}', 'PaymentController@printPreview')->name('print');
+    Route::post('book/saveExisting', 'BookingController@saveExisting')->name('saveExisting');
+
+    Route::get('book/pay/{id}', 'PaymentController@new')->name('pay');
+
+    Route::get('book/print/{id}', 'PaymentController@printPreview')->name('print');
+
+    Route::get('book/refund/{id}', 'Booking_refundController@new')->name('refund');
 
 });
-
-
-
