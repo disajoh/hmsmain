@@ -59,7 +59,8 @@ class BookingController extends AppBaseController
     {
         $customers = Customer::orderBy('first_name')->get();
         $rooms = Room::orderBy('room_number')->get();
-        return view('bookings.create',compact('rooms','customers'));
+        $editing = false;
+        return view('bookings.create',compact('rooms','customers','editing'));
     }
 
     /**
@@ -179,6 +180,7 @@ class BookingController extends AppBaseController
         $rooms = Room::orderBy('room_number')->get();
        
         $booking = $this->bookingRepository->findWithoutFail($id);
+        $editing = true;
 
         if (empty($booking)) {
             Flash::error('Booking not found');
@@ -186,7 +188,7 @@ class BookingController extends AppBaseController
             return redirect(route('bookings.index'));
         }
 
-        return view('bookings.edit',compact('booking','rooms','customers'));
+        return view('bookings.edit',compact('booking','rooms','customers', 'editing'));
     }
 
     /**
@@ -208,6 +210,14 @@ class BookingController extends AppBaseController
         }
 
         $booking = $this->bookingRepository->update($request->all(), $id);
+
+        $room = $booking->room;
+        
+        Room::where('id', $request['old_room'])
+          ->update(['available' => true]); 
+
+        Room::where('id', $room['id'])
+          ->update(['available' => false]);
 
         Flash::success('Booking updated successfully.');
 

@@ -6,6 +6,8 @@
 
 @if($validOperation && Auth::user()->role_id < 2)
     <div class="form-group col-sm-6">
+
+
       <label for="sel1">Staff Role:</label>
       <select class="form-control" id="sel1" name="role_id">
             <option value="{{ $user->role['id'] }}">{{ $user->role['name'] }}</option>
@@ -14,6 +16,7 @@
                 <option value="{{ $role['id'] }}">{{ $role['name'] }}</option>
             @endforeach
       </select>
+
     </div>
     
 @endif
