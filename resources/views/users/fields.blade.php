@@ -7,17 +7,15 @@
 @if($validOperation && Auth::user()->role_id < 2)
     <div class="form-group col-sm-6">
       <label for="sel1">Staff Role:</label>
-      <select class="form-control" id="sel1">
-        <option value="{{ $user->role['id'] }}">{{ $user->role['name'] }}</option>
-        @foreach($roles as $role)
+      <select class="form-control" id="sel1" name="role_id">
+            <option value="{{ $user->role['id'] }}">{{ $user->role['name'] }}</option>
+            @foreach($roles as $role)
             
-            <option value="{{ $role['id'] }}">{{ $role['name'] }}</option>
-
-        @endforeach
+                <option value="{{ $role['id'] }}">{{ $role['name'] }}</option>
+            @endforeach
       </select>
     </div>
     
-
 @endif
 <!-- First Name Field -->
 <div class="form-group col-sm-6">
@@ -66,7 +64,6 @@
     {!! Form::label('password_confirmation', 'Confirm Password:') !!}
     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
 </div>
-
 
 
 <!-- Submit Field -->
