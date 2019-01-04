@@ -59,10 +59,12 @@
 </div>
 
 <!-- Date Issued Field -->
-<div class="form-group">
-    {!! Form::label('date_issued', 'Date Issued Passport:') !!}
-    {!! $customer->date_issued->format('D d, M, Y') !!}
-</div>
+@if(!is_null($customer->date_issued))
+    <div class="form-group">
+        {!! Form::label('date_issued', 'Date Issued Passport:') !!}
+        {!! $customer->date_issued->format('D d, M, Y') !!}
+    </div>
+@endif
 
 <!-- Created At Field -->
 <div class="form-group">
