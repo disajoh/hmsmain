@@ -11,6 +11,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Expense_type;
+use Auth;
 
 class ExpenditureController extends AppBaseController
 {
