@@ -2,6 +2,7 @@
     <thead>
         <tr>
         <th>Reciept No.</th>
+        <th>Booking Id</th>
         <th>Cost</th>
         <th>Amount Paid</th>
         <th>Discount</th>
@@ -19,6 +20,7 @@
                 $price= $payment->booking->room->roomcategory['price']*$days;
             ?>
             <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->id !!}</a></td>
+            <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->booking['id'] !!}</a></td>
             <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $price !!}</a></td>
             <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->amount_paid !!}</a></td>
             <td><a href="{!! route('payments.show', [$payment->id]) !!}">{!! $payment->discount !!}</a></td>

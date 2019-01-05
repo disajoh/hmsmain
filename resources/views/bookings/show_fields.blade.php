@@ -1,9 +1,8 @@
 <!-- Id Field -->
-<!-- <div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
+<div class="form-group">
+    {!! Form::label('id', 'Booking Id:') !!}
     <p>{!! $booking->id !!}
 </div>
- -->
 
 <!-- Room Id Field -->
 <div class="form-group">
