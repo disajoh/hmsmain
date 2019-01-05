@@ -104,6 +104,7 @@ class Booking_refundController extends AppBaseController
     public function edit($id)
     {
         $bookingRefund = $this->bookingRefundRepository->findWithoutFail($id);
+        $booking= Booking::find($id);
 
         if (empty($bookingRefund)) {
             Flash::error('Booking Refund not found');
@@ -111,7 +112,9 @@ class Booking_refundController extends AppBaseController
             return redirect(route('bookingRefunds.index'));
         }
 
-        return view('booking_refunds.edit')->with('bookingRefund', $bookingRefund);
+        return view('booking_refunds.edit')
+        ->with('bookingRefund', $bookingRefund)
+        ->with('booking', $booking);
     }
 
     /**
