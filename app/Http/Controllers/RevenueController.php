@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Other_revenue_source;
+use Auth;
 
 class RevenueController extends AppBaseController
 {
@@ -43,7 +45,8 @@ class RevenueController extends AppBaseController
      */
     public function create()
     {
-        return view('revenues.create');
+        $revenueSources = Other_revenue_source::all();
+        return view('revenues.create', compact('revenueSources'));
     }
 
     /**
@@ -56,6 +59,7 @@ class RevenueController extends AppBaseController
     public function store(CreateRevenueRequest $request)
     {
         $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
 
         $revenue = $this->revenueRepository->create($input);
 
@@ -94,14 +98,17 @@ class RevenueController extends AppBaseController
     public function edit($id)
     {
         $revenue = $this->revenueRepository->findWithoutFail($id);
-
+        
+        $revenueSources = Other_revenue_source::all();
         if (empty($revenue)) {
             Flash::error('Revenue not found');
 
             return redirect(route('revenues.index'));
         }
 
-        return view('revenues.edit')->with('revenue', $revenue);
+        return view('revenues.edit')
+        ->with('revenue', $revenue)
+        ->with('revenueSources', $revenueSources);
     }
 
     /**

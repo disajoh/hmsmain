@@ -109,6 +109,7 @@ class PaymentController extends AppBaseController
     public function edit($id)
     {
         $payment = $this->paymentRepository->findWithoutFail($id);
+        $booking= Booking::find($id);
 
         if (empty($payment)) {
             Flash::error('Payment not found');
@@ -116,7 +117,9 @@ class PaymentController extends AppBaseController
             return redirect(route('payments.index'));
         }
 
-        return view('payments.edit')->with('payment', $payment);
+        return view('payments.edit')
+        ->with('payment', $payment)
+        ->with('booking', $booking);
     }
 
     /**

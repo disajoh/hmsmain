@@ -8,7 +8,8 @@
 <!-- User Id Field -->
 <div class="form-group">
     {!! Form::label('user_id', 'Staff:') !!}
-    {!! $revenue->user['name'] !!}
+    {!! $revenue->user['first_name'] !!}
+    {!! $revenue->user['surname'] !!}
 </div>
 
 <!-- Amount Field -->

@@ -98,6 +98,7 @@ class ExpenditureController extends AppBaseController
     public function edit($id)
     {
         $expenditure = $this->expenditureRepository->findWithoutFail($id);
+        $expenseTypes = Expense_type::all();
 
         if (empty($expenditure)) {
             Flash::error('Expenditure not found');
@@ -105,7 +106,9 @@ class ExpenditureController extends AppBaseController
             return redirect(route('expenditures.index'));
         }
         
-        return view('expenditures.edit')->with('expenditure', $expenditure);
+        return view('expenditures.edit')
+            ->with('expenditure', $expenditure)
+            ->with('expenseTypes', $expenseTypes);
     }
 
     /**

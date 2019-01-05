@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Revenue Source</th>
-        <th>User Id</th>
+        <th>Staff</th>
         <th>Amount</th>
         <th>Transaction Date</th>
             <th colspan="3">Action</th>
@@ -12,7 +12,7 @@
     @foreach($revenues as $revenue)
         <tr>                    
             <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->other_revenue_source['name'] !!}</a></td>
-            <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->user['name'] !!}</a></td>
+            <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->user['first_name'] !!}</a></td>
             <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->amount !!}</a></td>
             <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->transaction_date !!}</a></td>
             <td>

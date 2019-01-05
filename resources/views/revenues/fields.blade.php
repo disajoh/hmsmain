@@ -1,13 +1,18 @@
 <!-- Other Revenue Source Id Field -->
-<div class="form-group col-sm-6">
+<!-- <div class="form-group col-sm-6">
     {!! Form::label('other_revenue_source_id', 'Other Revenue Source Id:') !!}
     {!! Form::number('other_revenue_source_id', null, ['class' => 'form-control']) !!}
 </div>
-
-<!-- User Id Field -->
+-->
 <div class="form-group col-sm-6">
-    {!! Form::label('user_id', 'User Id:') !!}
-    {!! Form::number('user_id', null, ['class' => 'form-control']) !!}
+    <label for="sel1">Revenue Source:</label>
+    <select class="form-control" id="sel1" name="other_revenue_source_id">
+        @foreach($revenueSources as $revenueSource)
+            
+            <option value="{{ $revenueSource['id'] }}">{{ $revenueSource['name'] }}</option>
+            
+        @endforeach
+    </select>
 </div>
 
 <!-- Amount Field -->
