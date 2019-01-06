@@ -46,7 +46,8 @@ class User extends Model
         'address',
         'email_verified_at',
         'password',
-        'remember_token'
+        'remember_token',
+        'role_id'
     ];
 
     /**
