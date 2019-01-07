@@ -57,7 +57,7 @@ class Customer extends Model
         'first_name' => 'string',
         'surname' => 'string',
         'other_name' => 'string',
-        'phone' => 'integer',
+        'phone' => 'string',
         'email' => 'string',
         'occupation' => 'string',
         'nationality' => 'string',
