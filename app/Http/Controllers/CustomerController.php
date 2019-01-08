@@ -43,7 +43,8 @@ class CustomerController extends AppBaseController
      */
     public function create()
     {
-        return view('customers.create');
+        $editOperation = false;
+        return view('customers.create', compact('editOperation'));
     }
 
     /**
@@ -100,8 +101,10 @@ class CustomerController extends AppBaseController
 
             return redirect(route('customers.index'));
         }
-
-        return view('customers.edit')->with('customer', $customer);
+        $editOperation = true;
+        return view('customers.edit')
+            ->with('customer', $customer)
+            ->with('editOperation', $editOperation);
     }
 
     /**
