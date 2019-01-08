@@ -47,7 +47,9 @@ $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andor
 <div class="form-group col-sm-6">
             <label for="nationality">Nationality</label>
             <select name="nationality" class="form-control col-sm-6" required>
-                <option value="{{ $customer->id }}">{{ $customer->nationality }}</option>
+                @if($editOperation)
+                    <option value="{{ $customer->id }}">{{ $customer->nationality }}</option>
+                @endif
                 <?php
                 foreach($countries as $key => $value):
                 echo '<option value="'.$value.'">'.$value.'</option>'; //close your tags!!
