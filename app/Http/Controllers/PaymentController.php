@@ -52,7 +52,10 @@ class PaymentController extends AppBaseController
     public function new($id)
     {
         $booking= Booking::find($id);
-        return view('payments.create')->with('booking', $booking);
+        $editing= false;
+        return view('payments.create')
+        ->with('booking', $booking)
+        ->with('editing', $editing);
     }
 
     public function printPreview($id)
@@ -109,7 +112,7 @@ class PaymentController extends AppBaseController
     public function edit($id)
     {
         $payment = $this->paymentRepository->findWithoutFail($id);
-        $booking= Booking::find($id);
+        $editing = true;
 
         if (empty($payment)) {
             Flash::error('Payment not found');
@@ -119,7 +122,7 @@ class PaymentController extends AppBaseController
 
         return view('payments.edit')
         ->with('payment', $payment)
-        ->with('booking', $booking);
+        ->with('editing', $editing);
     }
 
     /**
