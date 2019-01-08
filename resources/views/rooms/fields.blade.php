@@ -11,7 +11,7 @@
         <select class="form-control" id="sel1" name="category_id">
           @foreach($roomCategories as $roomCategory)
 
-              <option value="{{ $roomCategory['id'] }}">{{ $roomCategory['name'] }}</option>
+              <option value="{{ $roomCategory['category_id'] }}">{{ $roomCategory['name'] }}</option>
           @endforeach
 
         </select>
@@ -31,11 +31,21 @@
 
 <!-- Available Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('available', 'Available:') !!}
+    <!-- {!! Form::label('available', 'Available:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('available', false) !!}
         {!! Form::checkbox('available',1, true) !!} 1
-    </label>
+    </label> -->
+
+    @if($room->available == 1)
+    
+        Available
+    @else
+
+        Occupied
+
+    @endif
+    </a>
 </div>
 
 <!-- Submit Field -->

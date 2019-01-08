@@ -1,7 +1,7 @@
 
 <!-- Other Revenue Source Id Field -->
 <div class="form-group">
-    {!! Form::label('other_revenue_source_id', 'Other Revenue Source Id:') !!}
+    {!! Form::label('other_revenue_source_id', 'Other Revenue Source:') !!}
     {!! $revenue->other_revenue_source['name'] !!}
 </div>
 

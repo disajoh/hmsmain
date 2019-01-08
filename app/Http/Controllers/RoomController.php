@@ -101,8 +101,10 @@ class RoomController extends AppBaseController
 
             return redirect(route('rooms.index'));
         }
-
-        return view('rooms.edit')->with('room', $room);
+        $roomCategories = Room_category::all();
+        return view('rooms.edit')
+            ->with('room', $room)
+            ->with('roomCategories',$roomCategories);
     }
 
     /**
