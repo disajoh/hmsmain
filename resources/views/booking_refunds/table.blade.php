@@ -22,5 +22,8 @@
             </td>
         </tr>
     @endforeach
+    <div>
+        {{ $bookingRefunds->links() }}
+    </div>
     </tbody>
 </table>

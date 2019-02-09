@@ -21,7 +21,7 @@
 <!-- Transaction Date Field -->
 <div class="form-group">
     {!! Form::label('transaction_date', 'Transaction Date:') !!}
-    {!! $revenue->transaction_date !!}
+    {!! $revenue->transaction_date->format('D d, M, Y') !!}
 </div>
 
 <!-- Created At Field -->

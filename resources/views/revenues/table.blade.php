@@ -14,7 +14,7 @@
             <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->other_revenue_source['name'] !!}</a></td>
             <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->user['first_name'] !!}</a></td>
             <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->amount !!}</a></td>
-            <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->transaction_date !!}</a></td>
+            <td><a href="{!! route('revenues.show', [$revenue->id]) !!}">{!! $revenue->transaction_date->format('D d, M, Y') !!}</a></td>
             <td>
                 {!! Form::open(['route' => ['revenues.destroy', $revenue->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
@@ -26,5 +26,8 @@
             </td>
         </tr>
     @endforeach
+    <div>
+        {{ $revenues->links() }}
+    </div>
     </tbody>
 </table>

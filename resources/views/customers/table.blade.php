@@ -38,5 +38,8 @@
             </td>
         </tr>
     @endforeach
+    <div>
+        {{ $customers->links() }}
+    </div>
     </tbody>
 </table>

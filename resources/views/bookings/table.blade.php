@@ -2,20 +2,14 @@
     <thead>
         <tr>
             <th>Staff</th>
-        <th>Room Number</th>
-        <th>Customer</th>
-        <th>Arrival Date</th>
-        <th>Departure Date</th>
-        <!-- <th>Purpose</th>
-        <th>Next Destination</th>
-        <th>Transport Means</th>
-        <th>Where From</th>
-        <th>Vehicle Number</th> -->
-        <th>Cost</th>
-        <th>Amount Paid</th>
-        <th>Discount</th>
-        <th>Status</th>
-        <!-- <th>Discount</th> -->
+            <th>Room Number</th>
+            <th>Customer</th>
+            <th>Arrival Date</th>
+            <th>Departure Date</th>
+            <th>Cost</th>
+            <th>Amount Paid</th>
+            <th>Discount</th>
+            <th>Status</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
@@ -36,7 +30,8 @@
             foreach ($booking->booking_refund as $ref){
                 $refund = $refund + $ref{'amount_refunded'};
             }
-            $cost=$booking->room->roomcategory['price']*$days;
+            $cat=$booking->room['roomcategory'];
+            $cost=$cat['price']*$days;
             $balance= $cost - ($payment + $discount) + $refund;
             $payment = $payment - $refund;
         ?>
@@ -63,7 +58,6 @@
                 @endif
                 </a>
             </td>
-            <!-- <td>{!! $booking->discount !!}</td> -->
             <td>
                 {!! Form::open(['route' => ['bookings.destroy', $booking->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
@@ -85,5 +79,9 @@
             </td>
         </tr>
     @endforeach
+    <div>
+        {{ $bookings->links() }}
+    </div>
+    
     </tbody>
 </table>

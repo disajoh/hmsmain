@@ -33,7 +33,8 @@ class Booking_refundController extends AppBaseController
         $this->bookingRefundRepository->pushCriteria(new RequestCriteria($request));
 
         $bookingRefunds = $this->bookingRefundRepository
-        ->orderBy('updated_at', 'DESC')->all();
+        ->orderBy('updated_at', 'DESC')
+        ->paginate(20);
 
         return view('booking_refunds.index')
             ->with('bookingRefunds', $bookingRefunds);

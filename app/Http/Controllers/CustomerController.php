@@ -30,7 +30,8 @@ class CustomerController extends AppBaseController
     public function index(Request $request)
     {
         $this->customerRepository->pushCriteria(new RequestCriteria($request));
-        $customers = $this->customerRepository->all();
+        $customers = $this->customerRepository
+        ->paginate(20);
 
         return view('customers.index')
             ->with('customers', $customers);

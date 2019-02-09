@@ -29,5 +29,8 @@
             </td>
         </tr>
     @endforeach
+    <div>
+        {{ $expenditures->links() }}
+    </div>
     </tbody>
 </table>

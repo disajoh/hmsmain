@@ -32,7 +32,8 @@ class ExpenditureController extends AppBaseController
     public function index(Request $request)
     {
         $this->expenditureRepository->pushCriteria(new RequestCriteria($request));
-        $expenditures = $this->expenditureRepository->all();
+        $expenditures = $this->expenditureRepository
+        ->paginate(20);
 
         return view('expenditures.index')
             ->with('expenditures', $expenditures);

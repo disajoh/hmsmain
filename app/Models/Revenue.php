@@ -46,7 +46,7 @@ class Revenue extends Model
         'other_revenue_source_id' => 'integer',
         'user_id' => 'integer',
         'amount' => 'float',
-        'transaction_date' => 'integer'
+        'transaction_date' => 'date'
     ];
 
     /**

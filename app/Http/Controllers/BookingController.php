@@ -9,6 +9,7 @@ use App\Repositories\BookingRepository;
 use App\Repositories\CustomerRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -32,7 +33,7 @@ class BookingController extends AppBaseController
     }
 
     /**
-     * Display a listing of the Booking.
+     * Display a listing of the active Bookings.
      *
      * @param Request $request
      * @return Response
@@ -43,10 +44,19 @@ class BookingController extends AppBaseController
         $bookings = $this->bookingRepository
         ->orderBy('active','DESC')
         ->orderBy('room_id', 'ASC')
-        ->all();
+        ->paginate(20);
 
         return view('bookings.index')
             ->with('bookings', $bookings);
+    }
+
+    public function displayReport(Request $request){
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
+        $sortBy = $request->input('sort_by');
+
+        $title = 'Bagale Motel Booking Report';
+
     }
 
     /**

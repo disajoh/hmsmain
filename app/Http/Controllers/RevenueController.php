@@ -32,7 +32,8 @@ class RevenueController extends AppBaseController
     public function index(Request $request)
     {
         $this->revenueRepository->pushCriteria(new RequestCriteria($request));
-        $revenues = $this->revenueRepository->all();
+        $revenues = $this->revenueRepository
+        ->paginate(20);
 
         return view('revenues.index')
             ->with('revenues', $revenues);

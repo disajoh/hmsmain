@@ -34,7 +34,7 @@ class PaymentController extends AppBaseController
         $this->paymentRepository->pushCriteria(new RequestCriteria($request));
         $payments = $this->paymentRepository
         ->orderBy('updated_at', 'DESC')
-        ->all();
+        ->paginate(20);
 
         return view('payments.index')
             ->with('payments', $payments);
