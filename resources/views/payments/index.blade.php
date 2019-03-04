@@ -10,7 +10,15 @@
         @include('flash::message')
 
         <div class="clearfix"></div>
+
         <div class="box box-primary">
+            <div class="row">
+                    {!! Form::open(['route' => 'payreport']) !!}
+
+                        @include('payments.search')
+
+                    {!! Form::close() !!}
+                </div>
             <div class="box-body">
                     @include('payments.table')
             </div>

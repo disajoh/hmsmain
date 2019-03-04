@@ -11,6 +11,8 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Other_revenue_source;
+use App\Models\Revenue;
+use App\Models\Payment;
 use Auth;
 
 class RevenueController extends AppBaseController
@@ -159,5 +161,24 @@ class RevenueController extends AppBaseController
         Flash::success('Revenue deleted successfully.');
 
         return redirect(route('revenues.index'));
+    }
+    /**
+     * Generate report of Revenues.
+     *
+     * @param  Request $request
+     *
+     * @return Response
+     */
+    public function displayReport(Request $request){
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
+
+        $revenues = Revenue::whereBetween('transaction_date', [$fromDate, $toDate])->orderBy('transaction_date')->get();
+        $payments = Payment::whereBetween('date_received', [$fromDate, $toDate])->orderBy('date_received')->get();
+        return view('revenues.print_report')
+        ->with('revenues', $revenues)
+        ->with('payments', $payments)
+        ->with('fromDate', $fromDate)
+        ->with('toDate', $toDate); 
     }
 }

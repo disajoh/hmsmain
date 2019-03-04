@@ -11,6 +11,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Expense_type;
+use App\Models\Expenditure;
 use Auth;
 
 class ExpenditureController extends AppBaseController
@@ -159,5 +160,22 @@ class ExpenditureController extends AppBaseController
         Flash::success('Expenditure deleted successfully.');
 
         return redirect(route('expenditures.index'));
+    }
+    /**
+     * Generate report of expenditures.
+     *
+     * @param  Request $request
+     *
+     * @return Response
+     */
+    public function displayReport(Request $request){
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
+
+        $expenditures = Expenditure::whereBetween('expense_date', [$fromDate, $toDate])->orderBy('expense_date')->get();
+        return view('expenditures.print_report')
+        ->with('expenditures', $expenditures)
+        ->with('fromDate', $fromDate)
+        ->with('toDate', $toDate); 
     }
 }

@@ -64,6 +64,18 @@ class PaymentController extends AppBaseController
         return view('payments.print_reciept')->with('payment', $payment);
     }
 
+    public function displayReport(Request $request){
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
+
+
+        $payments = Payment::whereBetween('date_received', [$fromDate, $toDate])->orderBy('date_received')->get();
+        return view('payments.print_report')
+        ->with('payments', $payments)
+        ->with('fromDate', $fromDate)
+        ->with('toDate', $toDate); 
+    }
+
     /**
      * Store a newly created Payment in storage.
      *

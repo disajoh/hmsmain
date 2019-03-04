@@ -14,6 +14,13 @@
 
         <div class="clearfix"></div>
         <div class="box box-primary">
+            <div class="row">
+                    {!! Form::open(['route' => 'revenuereport']) !!}
+
+                        @include('layouts.search')
+
+                    {!! Form::close() !!}
+                </div>
             <div class="box-body">
                     @include('revenues.table')
             </div>

@@ -76,4 +76,12 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::get('book/refund/{id}', 'Booking_refundController@new')->name('refund');
 
+    Route::post('pay/payreport', 'PaymentController@displayReport')->name('payreport');
+    
+    Route::post('book/bookreport', 'BookingController@displayReport')->name('bookreport');
+    
+    Route::post('expence/expencereport', 'ExpenditureController@displayReport')->name('expencereport');
+    
+    Route::post('rev/revenuereport', 'RevenueController@displayReport')->name('revenuereport');
+
 });

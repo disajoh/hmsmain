@@ -53,9 +53,13 @@ class BookingController extends AppBaseController
     public function displayReport(Request $request){
         $fromDate = $request->input('from_date');
         $toDate = $request->input('to_date');
-        $sortBy = $request->input('sort_by');
 
-        $title = 'Bagale Motel Booking Report';
+        $bookings = Booking::whereBetween('arrival_date', [$fromDate, $toDate])->orderBy('arrival_date')->get();
+        
+        return view('bookings.print_report')
+        ->with('bookings', $bookings)
+        ->with('fromDate', $fromDate)
+        ->with('toDate', $toDate);
 
     }
 
