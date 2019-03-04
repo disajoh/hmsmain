@@ -28,6 +28,7 @@
         	<th>Room</th>
         	<th>Customer Name</th>
             <th>Address</th>
+            <th>Purpose</th>
             <th>Phone Number</th>
         	</tr>
     </thead>
@@ -42,7 +43,8 @@
             <td>{!! $booking->departure_date->format('D d, M, Y') !!}</td>
             <td>{!! $booking->room['room_number'] !!}</td>
             <td>{!! $booking->customer['first_name'] .' '.$booking->customer['surname']!!}</td>
-            <td>{!! $booking->customer['address'] !!}</td>	
+            <td>{!! $booking->customer['address'] !!}</td>
+            <td>{!! $booking->purpose !!}</td>	
 			<td>{!! $booking->customer['phone'] !!}</td>
         </tr>
         <?php
