@@ -17,8 +17,13 @@
         
     @foreach($bookings as $booking)
         <?php
-            $diff= date_diff($booking->departure_date, $booking->arrival_date);
-            $days=intval($diff->format("%d"));
+            
+            // Calulating the difference in timestamps 
+            $diff = strtotime($booking->departure_date) - strtotime($booking->arrival_date); 
+                      
+            // 1 day = 24 hours 
+            // 24 * 60 * 60 = 86400 seconds    
+            $days= abs(round($diff / 86400));
 
             $payment=0;
             $discount=0;

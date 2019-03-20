@@ -254,49 +254,17 @@ class BookingController extends AppBaseController
 
             return redirect(route('bookings.index'));
         }
-        //$this->bookingRepository->update(['active' => false], $id);;
+
+        $room = $booking->room;
+        Room::where('id', $room['id'])
+          ->update(['available' => true]);
 
         Booking::where('id', $booking['id'])
           ->update(['active' => false]);
-        $room = $booking->room;
-       
-        Room::where('id', $room['id'])
-          ->update(['available' => true]);
+        
 
         Flash::success('Successfully checked out.');
 
-        //$this->bookingRepository->delete($id);
-
-        //Flash::success('Booking deleted successfully.');
-
-        return redirect(route('bookings.index'));
-    }
-
-    /**
-     * Checout a specified Booking.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function checkout($id)
-    {
-        $booking = $this->bookingRepository->findWithoutFail($id);
-
-        if (empty($booking)) {
-            Flash::error('Booking not found');
-
-            return redirect(route('bookings.index'));
-        }
-
-        $this->bookingRepository->update(['active' => false], $id);;
-
-        $room = $booking->room;
-       
-        Room::where('id', $room['id'])
-          ->update(['available' => true]);
-
-        Flash::success('Successfully checked out.');
 
         return redirect(route('bookings.index'));
     }

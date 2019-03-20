@@ -68,8 +68,9 @@
 <hr>
 <!-- Cost Field -->
 <?php
-$diff= date_diff($booking->departure_date, $booking->arrival_date);
-$days=intval($diff->format("%d"));
+    // Calulating the difference in timestamps 
+    $diff = strtotime($booking->departure_date) - strtotime($booking->arrival_date);     
+    $days= abs(round($diff / 86400));
 ?>
 <div class="form-group">
     {!! Form::label('cost', 'Cost:      ') !!}         

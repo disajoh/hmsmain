@@ -51,11 +51,11 @@
 <!-- Cost Field -->
 <?php
     if($editing){
-       $diff= date_diff($payment->booking->departure_date, $payment->booking->arrival_date); 
+       $diff= strtotime($payment->booking['departure_date']) - strtotime($payment->booking['arrival_date']); 
     }else{
-        $diff= date_diff($booking->departure_date, $booking->arrival_date);
+        $diff= strtotime($booking->departure_date) - strtotime($booking->arrival_date);
     }
-    $days=intval($diff->format("%d"));
+    $days=abs(round($diff / 86400));
     if($editing){
         $cost=$payment->booking->room->roomcategory['price']*$days;
     }else{

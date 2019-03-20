@@ -29,8 +29,8 @@
 <hr>
 
 <?php
-                $diff= date_diff($payment->booking['departure_date'], $payment->booking['arrival_date']);
-                $days=intval($diff->format("%d"));
+                $diff= strtotime($payment->booking['departure_date']) - strtotime($payment->booking['arrival_date']);
+                $days=abs(round($diff / 86400));
                 $price= $payment->booking->room->roomcategory['price']*$days;
             ?>
 <!-- Customer Field -->
